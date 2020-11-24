@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { logIn } from '../firebase/auth';
-import {Link, useHistory} from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { Alert } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -45,7 +45,6 @@ export default function Login() {
                     <input type="password" id='password' required ref={passwordRef} />
                 </label>
                 <button disabled={buttonlog}>Ingresar</button>
-                <p>{error}</p>
                 <Link to='/recover'> Recuperar Contraseña </Link>
                 <Link to='/signup'> Registrarse </Link>
             </form>

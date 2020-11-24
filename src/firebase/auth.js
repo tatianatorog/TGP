@@ -5,14 +5,12 @@ export const signup = async (email, password, name) => {
 
       const newUser = await auth.createUserWithEmailAndPassword(email, password);
       const currentUser = await auth.currentUser;
-      await currentUser.updateProfile({
-        displayName: name,
-      });
+      await currentUser.updateProfile({ displayName: name, });
       return newUser;
   }
 
 export const logIn =  async (email, password) => {
-     return auth.signInWithEmailAndPassword(email, password);
+     return await auth.signInWithEmailAndPassword(email, password);
   }
 
   export const recoverPass = async (email) => {
@@ -25,10 +23,5 @@ export const logIn =  async (email, password) => {
   }
 
   export const signOut = async  () => {
-    try {
-      const userOut = await auth.signOut();
-      return userOut;
-    } catch (e) {
-      return e
-    }
+    return await auth.signOut();  
   }
