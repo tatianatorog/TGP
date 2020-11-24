@@ -14,7 +14,6 @@ export default function Login() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(emailRef.current.value, passwordRef.current.value)
 
         if (!new RegExp(/(@tgp\.com\.pe)$/).test(emailRef.current.value)) {
             return setError('Correo electrónico no válido se requiere un correo de TPG');
@@ -57,8 +56,7 @@ export default function Login() {
                     </div>
                     </Form.Group>
                     <Button disabled={buttonlog}  type="submit">INGRESAR</Button>
-                </Form>
-                
+                </Form> 
             </div>
         </section>
     )
