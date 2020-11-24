@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState ,useEffect} from 'react'
+import { useState ,useEffect} from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { getUsers } from '../controllers/user';
 
@@ -10,8 +10,10 @@ const DataTable = () => {
 
   function searchingTerm(term){
       return function(x){
-      return x.entidad.toLowerCase().includes(term.toLowerCase()) || !term;
-      //return x.expediente.includes(term)|| !term;
+      return x.entidad.toLowerCase().includes(term.toLowerCase())||
+      x.expediente.includes(term)||x.motivo.toLowerCase().includes(term.toLowerCase())||x.tema.toLowerCase().includes(term.toLowerCase())||
+      !term;
+      
       }
   }
 
@@ -31,7 +33,7 @@ const DataTable = () => {
        <table className="table table-bordered main">
           <thead>
             <tr>
-              <th>Entidad</th>
+              <th className="main">Entidad</th>
               <th>Número de Expediente</th>
               <th>Motivo</th>
               <th>Tema</th>
