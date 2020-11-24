@@ -1,8 +1,8 @@
 import React, { useState, useRef } from 'react';
 import { logIn } from '../firebase/auth';
 import { Link, useHistory } from 'react-router-dom';
-import { Alert } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { Alert, Button, Form } from 'react-bootstrap';
+import '../style/login.css'
 
 
 export default function Login() {
@@ -12,11 +12,12 @@ export default function Login() {
     const [buttonlog, setButtonlog] = useState(false);
     const history = useHistory();
 
-    const handleSubmit = async(e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log(emailRef.current.value, passwordRef.current.value)
 
-       if (!new RegExp(/(@tgp\.com\.pe)$/).test(emailRef.current.value)) {
-        return setError('Correo electrónico no válido se requiere un correo de TPG');
+        if (!new RegExp(/(@tgp\.com\.pe)$/).test(emailRef.current.value)) {
+            return setError('Correo electrónico no válido se requiere un correo de TPG');
         }
 
         try {
@@ -32,22 +33,33 @@ export default function Login() {
 
     return (
         <section className='login'>
-            <h1>Bienvenido a la Aplicación</h1>
-            <form onSubmit={handleSubmit}>
-                <h1>Iniciar Sesión</h1>
-                {error && <Alert variant="danger">{error}</Alert>}
-                <label htmlFor="email">
-                    Correo electrónico
-                    <input type="email" id='email' required ref={emailRef} placeholder="mdiaz@tgp.com.pe" />
-                </label>
-                <label htmlFor="password">
-                    Contraseña
-                    <input type="password" id='password' required ref={passwordRef} />
-                </label>
-                <button disabled={buttonlog}>Ingresar</button>
-                <Link to='/recover'> Recuperar Contraseña </Link>
-                <Link to='/signup'> Registrarse </Link>
-            </form>
+            <div className='image-login'>
+                <div></div> 
+            </div>
+            <div className='login-form'>
+                <p>Plataforma de acceso a documentos</p>
+                <Form onSubmit={handleSubmit}>
+                    {error && <Alert variant="danger">{error}</Alert>}
+                    <Form.Group >
+                        <Form.Label >
+                            Correo electrónico
+                    <Form.Control type="email"  className='inputLogin' required ref={emailRef} placeholder="mdiaz@tgp.com.pe" />
+                        </Form.Label>
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label>
+                            Contraseña
+                    <Form.Control type="password" className='inputLogin' required ref={passwordRef} placeholder="Password" />
+                        </Form.Label>
+                        <div className="login-links">
+                    <Link to='/recover'> Recuperar Contraseña </Link>
+                    <Link to='/signup'> Registrarse </Link>
+                    </div>
+                    </Form.Group>
+                    <Button disabled={buttonlog}  type="submit">INGRESAR</Button>
+                </Form>
+                
+            </div>
         </section>
     )
 }

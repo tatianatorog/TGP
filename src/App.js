@@ -8,6 +8,7 @@ import Upload from "./components/Upload";
 import React from "react";
 import Home from "./pages/home";
 import DataTable from "./pages/dataTable";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
