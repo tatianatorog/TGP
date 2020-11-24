@@ -4,10 +4,9 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import PriveteRoute from "./components/priveteRoute";
 import SignUp from "./pages/signUp";
 import LogIn from "./pages/login";
-import Upload from "./components/Upload";
+import home from "./pages/home";
 import React from "react";
-import Home from "./pages/home";
-import DataTable from "./pages/dataTable";
+import formUpload from "./pages/form";
 
 
 
@@ -16,13 +15,12 @@ function App() {
     <Router>
       <AuthProvider>
         <Switch>
-          <PriveteRoute exact path="/" route={Home} />
+          <PriveteRoute exact path="/" route={home} />
           <Route path="/login" component={LogIn} />
           <Route path="/signup" component={SignUp} />
-          <PriveteRoute path="/form" route={Upload} />
-          <Route path="/dataTable">
-            <DataTable />
-          </Route>
+          <PriveteRoute path="/dataTable" route={formUpload}>
+           
+          </PriveteRoute>
         </Switch>
       </AuthProvider>
     </Router>
