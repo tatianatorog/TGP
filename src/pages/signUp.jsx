@@ -1,6 +1,8 @@
 import React, { useRef, useState } from 'react';
 import { signup } from '../firebase/auth';
-import { Alert } from 'react-bootstrap'
+import { Link, useHistory } from 'react-router-dom';
+import { Alert } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function SignUp() {
    const registerNameRef = useRef();
@@ -9,6 +11,7 @@ export default function SignUp() {
    const registerConfirmPasswordRef = useRef();
    const [error, setError] = useState();
    const [buttonlog, setButtonlog] = useState(false);
+   const history = useHistory();
 
     const handleSubmit = async (e) => {
        e.preventDefault();
@@ -23,8 +26,9 @@ export default function SignUp() {
 
         try {
             setError('');
-            setButtonlog(true)
-            await signup(registerEmailRef.current.value, registerPasswordRef.current.value);
+            setButtonlog(true);
+            await signup(registerEmailRef.current.value, registerPasswordRef.current.value, registerNameRef.current.value);
+            history.push('/');
         } catch {
             setError('No se pudo crear la cuenta')
         }
@@ -55,7 +59,12 @@ export default function SignUp() {
                 </label>
                 <label htmlFor="register-password">
                     Contraseña
-                    <input type="password" id='register-password' required ref={registerPasswordRef} />
+                    <input type="password" 
+                    id='register-password' 
+                    required 
+                    pattern=".{6,}" 
+                    title="Debe contener 6 o más carácteres"
+                    ref={registerPasswordRef} />
                 </label>
                 <label htmlFor="register-password">
                     Confirmar Contraseña
@@ -63,7 +72,7 @@ export default function SignUp() {
                 </label>
                 <button disabled={buttonlog}>Registrarse</button>
                 <p>{error}</p>
-                <a href='register'> Iniciar Sesión </a>
+                <Link to='/login'> Iniciar Sesión </Link>
             </form>
         </section>
     )

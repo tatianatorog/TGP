@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from 'react';
 import { auth } from '../firebase/firebase.config'
 
-const AuthContext = React.createContext()
+export const AuthContext = React.createContext()
 
 export  function AuthProvider({children}) {
     const [currentUser, setCurrentUser] = useState();
@@ -13,7 +13,7 @@ export  function AuthProvider({children}) {
         return unsubcribe
     },[])
     return (
-        <AuthContext.Provider value={currentUser}>
+        <AuthContext.Provider value={{currentUser}}>
             {children}
         </AuthContext.Provider>
     )
