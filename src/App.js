@@ -5,11 +5,12 @@ import PriveteRoute from "./components/priveteRoute";
 import SignUp from "./pages/signUp";
 import LogIn from "./pages/login";
 import Recover from "./pages/recover";
-import Upload from "./components/Upload";
 import Home from "./pages/home";
-import DataTable from "./pages/dataTable";
+import formUpload from "./pages/form";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
+
+
 
 
 function App() {
@@ -21,10 +22,7 @@ function App() {
           <Route path="/signup" component={SignUp} />
           <Route path="/recover" component={Recover} />
           <PriveteRoute exact path="/" route={Home} />
-          <PriveteRoute path="/form" route={Upload} />
-          <Route path="/dataTable">
-            <DataTable />
-          </Route>
+          <PriveteRoute path="/dataTable" route={formUpload} />
         </Switch>
       </AuthProvider>
     </Router>
