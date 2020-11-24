@@ -53,14 +53,14 @@ export default function Upload() {
     addDocument(info);
     setFile(null);
     setEntity("");
-    setRecord(0);
+    setRecord("");
     setReason("");
     setTopic("");
   }
 
   return (
     <div>
-      <Container>
+      <Container className="">
         <Form>
           <Form.Row>
             <Form.Group as={Col} controlId="formGridCity">
