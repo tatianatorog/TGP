@@ -1,4 +1,4 @@
-import firebase from '../firebase/firebase.config';
+import {firebase} from '../firebase/firebase.config';
 
 const addUser = (user) => firebase.firestore().collection('documents').add(user);
 
