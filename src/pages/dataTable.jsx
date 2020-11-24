@@ -2,6 +2,7 @@ import React from 'react';
 import { useState ,useEffect} from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { getUsers } from '../controllers/user';
+import '../style/dataTable.css';
 
 const DataTable = () => {
   
@@ -30,10 +31,10 @@ const DataTable = () => {
        <button type="submit">ir</button>    
        </form>
        
-       <table className="table table-bordered main">
-          <thead>
+       <table className="table table-bordered">
+          <thead className="main">
             <tr>
-              <th className="main">Entidad</th>
+              <th>Entidad</th>
               <th>Número de Expediente</th>
               <th>Motivo</th>
               <th>Tema</th>
