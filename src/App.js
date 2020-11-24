@@ -1,9 +1,9 @@
-import FileUpload from './components/Upload'
+import Upload from './components/Upload'
 import './App.css';
 
 function App() {
   return (
-    <FileUpload></FileUpload>
+    <Upload></Upload>
   );
 }
 
