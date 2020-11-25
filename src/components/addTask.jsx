@@ -1,5 +1,4 @@
 import { Button,Col, Row, Form,Container, Modal } from "react-bootstrap";
-import React, { useState } from "react";
 import "../style/addTask.css";
 
 
