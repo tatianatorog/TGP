@@ -1,6 +1,5 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
-import '../style/listDocument.css'
 
 export default function ListDocument({ data }) {
     return (

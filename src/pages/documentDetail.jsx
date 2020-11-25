@@ -2,7 +2,11 @@ import React, { useContext, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import ListDocument from '../components/listDocument';
 import { Button, Table } from "react-bootstrap";
-import MydModalWithGrid from "../components/addTask"
+import MydModalWithGrid from "../components/addTask";
+import MenuNav from '../components/menu';
+import '../style/documentDetail.css'
+
+
 
 
 
@@ -15,7 +19,8 @@ export default function DocumentDetail() {
     const document = allDoc.find(doc => doc.id === viewDoc);
 
     return (
-        <section>
+        <section className='documentDetail-container'>
+            <MenuNav/>
             <div className='description-document'>
                 <h1>{document.tema}</h1>
                 <ListDocument data={document} />
