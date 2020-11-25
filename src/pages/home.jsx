@@ -7,6 +7,7 @@ import "../style/home.css";
 import MenuNav from '../components/menu';
 import add from '../img/add.png';
 import user from '../img/user.png'
+import {useHistory } from 'react-router-dom';
 //import { DatePicker } from 'antd';
 //import 'antd/dist/antd.css'
 
@@ -14,6 +15,11 @@ const DataTable = () => {
   
   const [dataDoc,setData] = useState([]);
   const [term,setTerm] = useState('');
+  const history = useHistory();
+
+  const addDataTable =() =>{
+    history.push('/dataTable');
+  }
 
   function searchingTerm(term){
       return function(x){
@@ -43,7 +49,7 @@ const DataTable = () => {
        <p className="icon-user">Nombre de usuario<img  src={user} alt="user"/></p>
        </form>
         <div>
-        <button className="btn add"><img src={add} alt=""/>Agregar documento</button>
+        <button className="btn add" onClick ={addDataTable}><img src={add} alt=""/>Agregar documento</button>
         </div>
        <table className="table table-bordered">
           <thead className="header">

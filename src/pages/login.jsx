@@ -23,7 +23,7 @@ export default function Login() {
             setError('');
             setButtonlog(true);
             await logIn(emailRef.current.value, passwordRef.current.value);
-            history.push('/');
+            history.push('/home');
         } catch {
             setError('No se puede iniciar sesión');
         }

@@ -19,11 +19,11 @@ function App() {
     <Router>
       <AuthProvider>
         <Switch>
-          <Route path="/login" component={LogIn} />
+          <Route exact path="/" component={LogIn} />
           <Route path="/signup" component={SignUp} />
           <Route path="/recover" component={Recover} />
           <Route path="/addTask" component={MydModalWithGrid} />
-          <PriveteRoute exact path="/home" route={Home} />
+          <PriveteRoute path="/home" route={Home} />
           <PriveteRoute path="/dataTable" route={formUpload} />
         </Switch>
       </AuthProvider>
