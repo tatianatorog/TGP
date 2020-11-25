@@ -2,6 +2,10 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/storage'
 import 'firebase/auth';
+//import 'firebase/messaging';
+
+
+
 
 const firebaseConfig = {
     apiKey: "AIzaSyBBpQbC5mjGsr5SRZTqp39FqL-ZoUpXnJ0",
@@ -18,10 +22,16 @@ const firebaseConfig = {
 const db = firebase.firestore();
 const storage = firebase.storage()
 const auth = firebase.auth();
+//const messaging = firebase.messaging();
 
+
+
+
+/*messaging.onMessage(function(payload) {
+  console.log("Notificación recibida ", payload);
+ });*/
 
 export  {
   storage, db,  auth, firebase
 }
-
 

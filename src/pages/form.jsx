@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import { storage } from "../firebase/firebase.config";
-import { addDocument } from "../firebase/firestore";
-// import { useHistory } from "react-router-dom";
+import { addUser } from "../controllers/user";
+import { useHistory } from "react-router-dom";
 import { Button, Form, Col, Container } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import MenuNav from "../components/menu"
+// import FrontBar from "../components/frontbar"
 import "../style/form.css";
 
 export default function FormUpload() {
-  // const history = useHistory();
+  const history = useHistory();
   const [url, setURL] = useState("");
   const [entity, setEntity] = useState("");
   const [record, setRecord] = useState("");
@@ -67,13 +69,13 @@ export default function FormUpload() {
       archivo: url,
     };
 
-    addDocument(info);
-    // .then((docRef) => {
-    //   history.push({
-    //     pathname: "/",
-    //     state: { userId: docRef.id },
-    //   });
-    // });
+    addUser(info)
+    .then((docRef) => {
+     history.push({
+    pathname: "/home",
+    state: { userId: docRef.id },
+      });
+    });
 
     setEntity("");
     setRecord("");
@@ -89,7 +91,9 @@ export default function FormUpload() {
   }
 
   return (
-    <div>
+    <div className="page">
+      <MenuNav></MenuNav>
+      {/* <FrontBar></FrontBar> */}
       <Container className="container-form">
         <h2 className="title-form">AGREGAR DOCUMENTO</h2>
         <p>Ingresa los datos solicitados y luego presiona GUARDAR</p>
@@ -97,7 +101,7 @@ export default function FormUpload() {
           <Form.Row>
             <Form.Group as={Col} controlId="formGridState">
               <Form.Label>Entidad</Form.Label>
-              <Form.Control
+              <Form.Control className ="input-form"
                 as="select"
                 defaultValue="Choose..."
                 onChange={handleEntity}
@@ -116,18 +120,20 @@ export default function FormUpload() {
                 value={record}
                 onChange={handleRecord}
                 required
+                className ="input-form"
               />
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridZip">
               <Form.Label>Tema</Form.Label>
-              <Form.Control value={topic} onChange={handleTopic} />
+              <Form.Control value={topic} onChange={handleTopic} className ="input-form"  />
             </Form.Group>
           </Form.Row>
 
           <Form.Group controlId="exampleForm.ControlTextarea1">
             <Form.Label>Motivo</Form.Label>
             <Form.Control
+            className ="input-form"
               as="textarea"
               rows={3}
               value={reason}
@@ -142,6 +148,7 @@ export default function FormUpload() {
                 as="select"
                 defaultValue="Choose..."
                 onChange={handleArea}
+                className ="input-form"
               >
                 <option>Selecciona...</option>
                 <option>TGP</option>
@@ -156,6 +163,7 @@ export default function FormUpload() {
                 value={expiredDate}
                 onChange={handleExpiredDate}
                 required
+                className ="input-form"
               />
             </Form.Group>
 
@@ -166,18 +174,19 @@ export default function FormUpload() {
                 value={nowDate}
                 onChange={handleNowDate}
                 required
+                className ="input-form"
               />
             </Form.Group>
           </Form.Row>
           <Form.Row>
             <Form.Group as={Col} controlId="formGridState">
               <Form.Label>Otros</Form.Label>
-              <Form.Control value={others} onChange={handleOthers} required />
+              <Form.Control value={others} onChange={handleOthers} required className ="input-form"/>
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridCity">
               <Form.Label>Agregar etiquetas</Form.Label>
-              <Form.Control value={labels} onChange={handleLabels} required />
+              <Form.Control value={labels} onChange={handleLabels} required className ="input-form"/>
             </Form.Group>
 
             <Form.Group>

@@ -44,7 +44,7 @@ export default function Recover() {
                     </Form.Group>
                     <Button disabled={buttonlog} type="submit">ENVIAR</Button>
                     <div className="recover-links" style={{ margin: 30 }}>
-                        <Link to='/login'> Iniciar Sesión </Link>
+                        <Link to='/'> Iniciar Sesión </Link>
                     </div>
                 </Form>
 

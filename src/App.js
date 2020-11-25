@@ -5,6 +5,7 @@ import PriveteRoute from "./components/priveteRoute";
 import SignUp from "./pages/signUp";
 import LogIn from "./pages/login";
 import Recover from "./pages/recover";
+import MydModalWithGrid from "./components/addTask";
 import Home from "./pages/home";
 import formUpload from "./pages/form";
 import DocumentDetail from './pages/documentDetail'
@@ -19,10 +20,11 @@ function App() {
     <Router>
       <AuthProvider>
         <Switch>
-          <Route path="/login" component={LogIn} />
+          <Route exact path="/" component={LogIn} />
           <Route path="/signup" component={SignUp} />
           <Route path="/recover" component={Recover} />
-          <PriveteRoute exact path="/" route={Home} />
+          <Route path="/addTask" component={MydModalWithGrid} />
+          <PriveteRoute path="/home" route={Home} />
           <PriveteRoute path="/dataTable" route={formUpload} />
           <PriveteRoute path="/documentDetail" route={DocumentDetail} />
         </Switch>

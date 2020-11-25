@@ -29,7 +29,7 @@ export default function SignUp() {
             setError('');
             setButtonlog(true);
             await signup(registerEmailRef.current.value, registerPasswordRef.current.value, registerNameRef.current.value);
-            history.push('/');
+            history.push('/home');
         } catch {
             setError('No se pudo crear la cuenta')
         }
@@ -91,7 +91,7 @@ export default function SignUp() {
                     </Row>
                     <Button disabled={buttonlog} className='register-links'type="submit" >REGISTRARSE</Button>
                     <br />
-                    <Link to='/login'> Iniciar Sesión </Link>
+                    <Link to='/'> Iniciar Sesión </Link>
                 </Form>
             </div>
         </section>

@@ -8,7 +8,7 @@ export default function PriveteRoute({route:Componet, ...rest}) {
         <Route
         {...rest}
         render={props => {
-            return currentUser ? <Componet {...props}/> : <Redirect to='/login' />
+            return currentUser ? <Componet {...props}/> : <Redirect to='/' />
         }}>
             
         </Route>

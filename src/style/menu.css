@@ -1,0 +1,69 @@
+.menu{
+    width:24px;
+    /* height: 100vh; */
+    background-color: var(--input);
+}
+.menu-logo{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-top: 40px;
+}
+
+.logo-title{
+    text-align: center;
+    margin-top:15px;
+    margin-bottom: 115px;
+    color:#575756
+}
+
+.logo-title1{
+    margin-top:20px;
+    text-align: center;
+    color:#575756
+}
+.ant-menu-item{
+    background-color: var(--input);
+    margin:0px;
+}
+
+.ant-menu-item-only-chils{
+    margin:0px;
+}
+li{
+    margin:0px;
+}
+.ant-menu-vertical {
+    margin:0px;
+}
+
+.list{
+   
+    background-color: var(--input);
+}
+
+.item{
+    margin:0px;
+}
+
+.ant-menu-vertical .ant-menu-item, .ant-menu-vertical-left .ant-menu-item, .ant-menu-vertical-right .ant-menu-item, .ant-menu-inline .ant-menu-item, .ant-menu-vertical .ant-menu-submenu-title, .ant-menu-vertical-left .ant-menu-submenu-title, .ant-menu-vertical-right .ant-menu-submenu-title, .ant-menu-inline .ant-menu-submenu-title {
+    margin:0px;
+    border-bottom: 1px solid ;
+    height: 50px;
+}
+
+.ant-menu-vertical .ant-menu-item:not(:last-child), .ant-menu-vertical-left .ant-menu-item:not(:last-child), .ant-menu-vertical-right .ant-menu-item:not(:last-child), .ant-menu-inline .ant-menu-item:not(:last-child) {
+    margin:0px;
+    border-bottom: 1px solid var(--input);
+    height: 50px;
+}
+
+.ant-menu {
+    color:#575756;
+    font-weight: bold;
+    
+}
+
+.ant-menu-vertical > .ant-menu-item, .ant-menu-vertical-left > .ant-menu-item, .ant-menu-vertical-right > .ant-menu-item, .ant-menu-inline > .ant-menu-item, .ant-menu-vertical > .ant-menu-submenu > .ant-menu-submenu-title, .ant-menu-vertical-left > .ant-menu-submenu > .ant-menu-submenu-title, .ant-menu-vertical-right > .ant-menu-submenu > .ant-menu-submenu-title, .ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title {
+    height: 50px;
+}
