@@ -14,12 +14,7 @@ export const logIn =  async (email, password) => {
   }
 
   export const recoverPass = async (email) => {
-    try {
-      await auth.sendPasswordResetEmail(email);
-      return  `Hemos enviado un email a ${email} para cambiar la contraseña`;
-    } catch (error) {
-      return  'No se ha podido enviar el correo de verificación';
-    }
+    return  await auth.sendPasswordResetEmail(email);
   }
 
   export const signOut = async  () => {

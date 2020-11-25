@@ -26,111 +26,64 @@ export default function Home() {
 } */
 
 import React from 'react';
-import { useHistory } from 'react-router-dom';
-import { addUser } from '../controllers/user';
+import { useState ,useEffect} from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
+import { getUsers } from '../controllers/user';
+//import { DatePicker } from 'antd';
+//import 'antd/dist/antd.css'
 
-const Home = () => {
-  const history = useHistory();
-  const [entidad, setEntidad] = React.useState('');
-  const [expediente, setExpediente] = React.useState('');
-  const [motivo, setMotivo] = React.useState('');
-  const [tema, setTema] = React.useState('');
-  const [date, setDate] = React.useState('');
-
-
-  const [errorEntidad, setErrorEntidad] = React.useState('');
-  const [errorExpediente, setErrorExpediente] = React.useState('');
-  const [errorMotivo, setErrorMotivo] = React.useState('');
-  const [errorTema, setErrorTema] = React.useState('');
-
-  const submitData = () => {
-
-    if (entidad === '') {
-      setErrorEntidad('El nombre de la entidad es requerido');
-    }
-
-    if (expediente === '') {
-      setErrorExpediente('El número de expediente es requerido');
-    }
-
-    if (motivo === '') {
-      setErrorMotivo('El motivo de la sanción es requerido');
-    }
-
-    if (tema === '') {
-      setErrorTema('El tema es requerido');
-    }
-
-   
-
-    if (entidad !== '' && expediente !== '' && motivo !== '' && tema !== '') {
-      const registerNewDocument = {
-        entidad: entidad,
-        expediente: expediente,
-        motivo: motivo,
-        tema: tema,
-        date: date,
-      };
-
-      addUser(registerNewDocument)
-        .then((docRef) => {
-          history.push({
-            pathname: '/dataTable',
-            state: { userId: docRef.id }
-          });
-        });
-    }
-  }
-
-    return(
-      <div className="container" >
-          <div className="card text-center">
-         <div className="labels-date">
-          <label>Entidad</label>
-          <input type="text" onChange={e => setEntidad(e.target.value)} placeholder="Ingrese entidad" value={entidad} />
-          {errorEntidad !== "" ? (
-          <span class="alert">{errorEntidad}</span>
-        ) : (<span></span>)}
-        </div>
-      
-        <div className="labels-date">
-          <label>Número de Expediente</label>
-          <input type="text" onChange={e => setExpediente(e.target.value)} placeholder="Ingrese N° de expediente" value={expediente} />
-          {errorExpediente !== "" ? (
-          <span class="alert">{errorExpediente}</span>
-        ) : (<span></span>)}
-        </div>
-
-        <div className="labels-date">
-          <label>Motivo</label>
-          <input type="text" onChange={e => setMotivo(e.target.value)} placeholder="Resolución" value={motivo} />
-          {errorMotivo !== "" ? (
-          <span class="alert">{errorMotivo}</span>
-        ) : (<span></span>)}
-        </div>
-       
-        <div className="labels-date">
-          <label>Tema</label>
-          <input type="text" onChange={e => setTema(e.target.value)} placeholder="Descripción" value={tema} />
-          {errorTema !== "" ? (
-          <span class="alert">{errorTema}</span>
-        ) : (<span></span>)}
-        </div>
-
-        <div className="labels-date">
-          <label>Fecha de recepción</label>
-          <input type="date" onChange={e => setDate(e.target.value)} placeholder="DD/MM/AA" value={date} />
-        </div>
-
-        <div className="box-btnSolicitar">
-          <button className="btn-solicite" onClick={submitData}>
-            Registrar
-          </button>
-        </div>
-        </div>  
-      </div>
-    )
-  }
+const DataTable = () => {
   
-  export default Home
+  const [dataDoc,setData] = useState([]);
+  const [term,setTerm] = useState('');
+
+  function searchingTerm(term){
+      return function(x){
+      return x.entidad.toLowerCase().includes(term.toLowerCase())||
+      x.expediente.includes(term)||x.motivo.toLowerCase().includes(term.toLowerCase())||x.tema.toLowerCase().includes(term.toLowerCase())||
+      !term;
+      
+      }
+  }
+
+
+  useEffect(() => {
+    setData([]);
+    getUsers((data)=>setData(data))
+  }, []); 
+
+  return(
+    <>
+       <form>
+      <input name="term" maxLength="16" onChange={e => setTerm(e.target.value)} placeholder="buscar por..." autofocus required />
+       <button type="submit">ir</button>    
+       </form>
+       
+       <table className="table table-bordered main">
+          <thead>
+            <tr>
+              <th className="main">Entidad</th>
+              <th>Número de Expediente</th>
+              <th>Motivo</th>
+              <th>Tema</th>
+              <th>Fecha de recepción</th>
+            </tr>
+          </thead>
+          <tbody>
+            {dataDoc.filter(searchingTerm(term)).map(i=>{
+             // console.log(i);
+              return <tr key={i}>
+                <td>{i.entidad}</td>
+                <td>{i.expediente}</td>
+                <td>{i.motivo}</td>
+                <td>{i.tema}</td>
+                <td>{i.fecha_entrada}</td>
+              </tr>
+            })}
+          </tbody>
+        </table>
+    </>
+  )
+}
+
+export default DataTable;
