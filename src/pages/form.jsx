@@ -5,8 +5,11 @@ import { useHistory } from "react-router-dom";
 import { Button, Form, Col, Container } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import MenuNav from "../components/menu"
-// import FrontBar from "../components/frontbar"
+import FrontBar from "../components/frontbar"
 import "../style/form.css";
+import "../style/frontBar.css";
+import add from '../img/add.png';
+import user from '../img/user.png'
 
 export default function FormUpload() {
   const history = useHistory();
@@ -92,8 +95,17 @@ export default function FormUpload() {
 
   return (
     <div className="page">
+  
+
       <MenuNav></MenuNav>
-      {/* <FrontBar></FrontBar> */}
+      <div className="page-content">
+      {/* <div className="front">
+        <div className="front-user">
+        <p className="front-user-text"> Nombre usuario</p>
+        <img className="front-user-logo" src={user} alt=""/>
+        </div>
+      </div> */}
+      <FrontBar></FrontBar>
       <Container className="container-form">
         <h2 className="title-form">AGREGAR DOCUMENTO</h2>
         <p>Ingresa los datos solicitados y luego presiona GUARDAR</p>
@@ -181,11 +193,21 @@ export default function FormUpload() {
           <Form.Row>
             <Form.Group as={Col} controlId="formGridState">
               <Form.Label>Otros</Form.Label>
-              <Form.Control value={others} onChange={handleOthers} required className ="input-form"/>
+              <Form.Control
+                as="select"
+                defaultValue="Choose..."
+                onChange={handleOthers}
+                className ="input-form"
+              >
+                <option>Selecciona...</option>
+                <option>APORTES POR SU REGULACIÓN</option>
+                <option>DERRAME/ FUGA/ SINIESTRO</option>
+              </Form.Control>
+              {/* <Form.Control value={others} onChange={handleOthers} required className ="input-form"/> */}
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridCity">
-              <Form.Label>Agregar etiquetas</Form.Label>
+              <Form.Label>Agregar etiqueta</Form.Label>
               <Form.Control value={labels} onChange={handleLabels} required className ="input-form"/>
             </Form.Group>
 
@@ -219,6 +241,7 @@ export default function FormUpload() {
           </Button>
         </Form>
       </Container>
+      </div>
     </div>
   );
 }

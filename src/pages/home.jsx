@@ -8,7 +8,7 @@ import "../style/dataTable.css";
 import "../style/home.css";
 import MenuNav from '../components/menu';
 import add from '../img/add.png';
-import user from '../img/user.png';
+import FrontBar from "../components/frontbar"
 
 function DataTable() {
   const { allDoc, setviewDoc } = useContext(AuthContext);
