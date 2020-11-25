@@ -14,8 +14,7 @@ import '../style/documentDetail.css'
 export default function DocumentDetail() {
     const { viewDoc, allDoc } = useContext(AuthContext);
     const [modalShow, setModalShow] = useState(false);
-
-
+    
     const document = allDoc.find(doc => doc.id === viewDoc);
 
     return (
@@ -33,8 +32,9 @@ export default function DocumentDetail() {
                     <tr>
                         <td>Archivos Adjuntos</td>
                         <td>
-                            <tr><a href={document.archivo} target="_blank">File</a></tr>
-                            <tr><a href={document.archivo}>File</a></tr></td>
+                            <tr><a href={document.archivo} target="blank">File</a></tr>
+                            <tr><a href={document.archivo}>File</a></tr>
+                            </td>
                     </tr>
                     </tbody>
                 </Table>

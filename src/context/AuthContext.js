@@ -9,7 +9,7 @@ export  function AuthProvider({children}) {
     const [loading, setloading] = useState(true);
     const [allDoc,setAllDoc] = useState([]);
     const [viewDoc, setviewDoc] = useState();
-
+    
     useEffect(() => {
        const unsubcribe =  auth.onAuthStateChanged(user => {
             setCurrentUser(user)
