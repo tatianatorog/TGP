@@ -4,6 +4,7 @@ import { addDocument } from "../firebase/firestore";
 // import { useHistory } from "react-router-dom";
 import { Button, Form, Col, Container } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Navbar from "../components/Navbar"
 import "../style/form.css";
 
 export default function FormUpload() {
@@ -89,7 +90,8 @@ export default function FormUpload() {
   }
 
   return (
-    <div>
+    <div className="page">
+      <Navbar></Navbar>
       <Container className="container-form">
         <h2 className="title-form">AGREGAR DOCUMENTO</h2>
         <p>Ingresa los datos solicitados y luego presiona GUARDAR</p>

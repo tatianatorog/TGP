@@ -2,8 +2,7 @@ import React from 'react';
 import { useState ,useEffect} from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { getUsers } from '../controllers/user';
-//import { DatePicker } from 'antd';
-//import 'antd/dist/antd.css'
+
 
 const DataTable = () => {
   
