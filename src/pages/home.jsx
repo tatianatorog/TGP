@@ -38,10 +38,9 @@ function DataTable() {
   return (
     <div className="page">
       <MenuNav />
-      <div className="row">
-        <div className="card"></div>
+      <div className="row row-home">
         <div>
-          <div className="card wrapper">
+          <div className="page-content">
             <FrontBar
               searcher={
                 <input
@@ -67,6 +66,8 @@ function DataTable() {
                   <th>Motivo</th>
                   <th>Tema</th>
                   <th>Fecha de recepción</th>
+                  <th></th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody className="table-body">
