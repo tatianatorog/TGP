@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { storage } from "../firebase/firebase.config";
-import { addDocument } from "../firebase/firestore";
-// import { useHistory } from "react-router-dom";
+import { addUser } from "../controllers/user";
+import { useHistory } from "react-router-dom";
 import { Button, Form, Col, Container } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../style/form.css";
 
 export default function FormUpload() {
-  // const history = useHistory();
+  const history = useHistory();
   const [url, setURL] = useState("");
   const [entity, setEntity] = useState("");
   const [record, setRecord] = useState("");
@@ -67,13 +67,13 @@ export default function FormUpload() {
       archivo: url,
     };
 
-    addDocument(info);
-    // .then((docRef) => {
-    //   history.push({
-    //     pathname: "/",
-    //     state: { userId: docRef.id },
-    //   });
-    // });
+    addUser(info)
+    .then((docRef) => {
+     history.push({
+    pathname: "/home",
+    state: { userId: docRef.id },
+      });
+    });
 
     setEntity("");
     setRecord("");

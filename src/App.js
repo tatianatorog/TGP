@@ -21,7 +21,7 @@ function App() {
           <Route path="/login" component={LogIn} />
           <Route path="/signup" component={SignUp} />
           <Route path="/recover" component={Recover} />
-          <PriveteRoute exact path="/" route={Home} />
+          <PriveteRoute exact path="/home" route={Home} />
           <PriveteRoute path="/dataTable" route={formUpload} />
         </Switch>
       </AuthProvider>

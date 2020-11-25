@@ -1,0 +1,14 @@
+.left{
+    background:var(--main) !important;
+    width: 260px;
+}
+.logoins{
+    width: 200px;
+    height: 200px;
+    margin: 70px 30px 10px 30px;
+}
+.title{
+    color: #575756;
+ 
+    letter-spacing: 0.04em;
+}

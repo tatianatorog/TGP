@@ -1,5 +1,5 @@
 .header {
-    --main-bg-color:#0084AD;
+    --main-bg-color:#0DADCC;
     --primary-bg-color:#ffff;
     --secundary-bg-color:#grey;
   }
@@ -8,6 +8,16 @@
     background-color: var(--main-bg-color);
     color:var(--primary-bg-color);
 }
-.nav{
-    background-color: grey;
+.table-bordered{
+    width: 1200px;
+    margin: 150px 50px 10px 50px;
+}
+.wrapper{
+    width: 1350px;
+}
+.table-body{
+    
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.04em;
 }
