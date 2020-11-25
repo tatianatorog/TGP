@@ -4,8 +4,6 @@ import '../style/listDocument.css'
 
 export default function ListDocument({ data }) {
     return (
-        <div className='description-document'>
-            <h1>{data.tema}</h1>
             <Table>
                 <tbody>
                     <tr>
@@ -40,18 +38,8 @@ export default function ListDocument({ data }) {
                         <td>Otros</td>
                         <td>{data['Otros']}</td>
                     </tr>
-                    <tr>
-                        <td>Monto de Contingencia</td>
-                        <td><div contentEditable>{data['monto']}</div></td>
-                    </tr>
-                <tr>
-                    <td>Archivos Adjuntos</td>
-                    <td> 
-                    <tr><a href={data.archivo} target="_blank">File</a></tr>
-                    <tr><a href={data.archivo}>File</a></tr></td>
-                </tr>
+                    
                 </tbody>
             </Table>
-        </div >
     )
 }

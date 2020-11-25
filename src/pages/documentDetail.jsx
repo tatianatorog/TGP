@@ -1,8 +1,9 @@
 import React, { useContext, useState } from 'react';
-import { AuthContext} from '../context/AuthContext';
+import { AuthContext } from '../context/AuthContext';
 import ListDocument from '../components/listDocument';
-import { Button } from "react-bootstrap";
+import { Button, Table } from "react-bootstrap";
 import MydModalWithGrid from "../components/addTask"
+
 
 
 
@@ -15,11 +16,28 @@ export default function DocumentDetail() {
 
     return (
         <section>
-            <ListDocument data={document}/>
+            <div className='description-document'>
+                <h1>{document.tema}</h1>
+                <ListDocument data={document} />
+                <Table>
+                    <tbody>
+                    <tr>
+                        <td>Monto de Contingencia</td>
+                        <td><div contentEditable style={{width: 200}}>{document['monto']}</div></td>
+                    </tr>
+                    <tr>
+                        <td>Archivos Adjuntos</td>
+                        <td>
+                            <tr><a href={document.archivo} target="_blank">File</a></tr>
+                            <tr><a href={document.archivo}>File</a></tr></td>
+                    </tr>
+                    </tbody>
+                </Table>
+            </div>
             <Button variant="primary" onClick={() => setModalShow(true)}>
-          Agregar tarea
+                Agregar tarea
         </Button>
-        <MydModalWithGrid show={modalShow} onHide={() => setModalShow(false)} />
+            <MydModalWithGrid show={modalShow} onHide={() => setModalShow(false)} />
 
         </section>
     )
