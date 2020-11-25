@@ -1,9 +1,3 @@
-:root {
-    --blue:#017BC8;
-    --dark:#575756;
-    --gray:#E5E5E5;
-  }
-
 
 .container-form{
   width:1077px;
@@ -12,10 +6,6 @@
   margin-top: 160px;
 }
 
-.form-control {
-    background-color: var(--gray);
-    border:none
-}
 
 
 .btn-form{
