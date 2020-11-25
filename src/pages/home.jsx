@@ -67,6 +67,8 @@ function DataTable() {
                   <th>Motivo</th>
                   <th>Tema</th>
                   <th>Fecha de recepción</th>
+                  <th></th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody className="table-body">
