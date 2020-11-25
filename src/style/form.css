@@ -21,3 +21,6 @@ background-color:var(--blue) ;
 .title-form{
     font-size:18px;
 }
+.input-form{
+  text-transform: uppercase;
+}
