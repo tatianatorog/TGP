@@ -4,7 +4,7 @@ import { addUser } from "../controllers/user";
 import { useHistory } from "react-router-dom";
 import { Button, Form, Col, Container } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Navbar from "../components/Navbar"
+import Navbar from "../components/navBar"
 import "../style/form.css";
 
 export default function FormUpload() {
