@@ -34,12 +34,13 @@ const rootSubmenuKeys = ['sub1', 'sub2', 'sub4'];
         <Menu.Item key="4">Option 4</Menu.Item> */}
         Principal
       </Menu.Item>
-      <SubMenu key="sub2" icon={<HddFilled />} title="Navigation Two">
-      <Menu.Item key="4">Option 4</Menu.Item>
-        <Menu.Item key="5">Option 5</Menu.Item>
-        <Menu.Item key="6">Option 6</Menu.Item>
+      <SubMenu key="sub2" icon={<HddFilled />} title="TGP">
+      <Menu.Item key="4">G.Legal</Menu.Item>
+        <Menu.Item key="5">G.Sostenibilidad y comunicación 5</Menu.Item>
+        <Menu.Item key="6">G.Planeación y control</Menu.Item>
+        <Menu.Item key="7">G.Cormercial y Operaciones</Menu.Item>
       </SubMenu>
-      <SubMenu key="sub4" icon={<HddFilled />} title="Navigation Three">
+      <SubMenu key="sub4" icon={<HddFilled />} title="COGA">
         <Menu.Item key="9">Option 9</Menu.Item>
         <Menu.Item key="10">Option 10</Menu.Item>
         <Menu.Item key="11">Option 11</Menu.Item>

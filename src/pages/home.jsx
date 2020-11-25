@@ -6,9 +6,7 @@ import "../style/dataTable.css";
 import "../style/home.css";
 import MenuNav from '../components/menu';
 import add from '../img/add.png';
-import user from '../img/user.png'
-//import { DatePicker } from 'antd';
-//import 'antd/dist/antd.css'
+import FrontBar from "../components/frontbar"
 
 const DataTable = () => {
   
@@ -38,10 +36,9 @@ const DataTable = () => {
       </div>
       <div >
         <div className="card wrapper">
-       <form className="nav nav-tabs" id="nav-tab" role="tablist">
-       <input  className="form-control form-searcher" name="term" maxLength="16" onChange={e => setTerm(e.target.value)} placeholder="Buscar" />
-       <p className="icon-user">Nombre de usuario<img  src={user} alt="user"/></p>
-       </form>
+        <FrontBar
+        searcher={<input  className="form-control form-searcher" name="term" maxLength="16" onChange={e => setTerm(e.target.value)} placeholder="Buscar" />}
+        ></FrontBar>
         <div>
         <button className="btn add"><img src={add} alt=""/>Agregar documento</button>
         </div>

@@ -1,7 +1,7 @@
-import React from 'react';
-import add from '../img/add.png';
-import user from '../img/user.png'
-// import './Button.scss';
+import React from "react";
+import add from "../img/add.png";
+import user from "../img/user.png";
+
 
 // const Button = ({ cName, onClick, img, text }) => (
 //   <button
@@ -16,16 +16,14 @@ import user from '../img/user.png'
 
 // export default Button;
 
-const FrontBar = ({onChange} ) => (
-<div >
-{/* <form className="nav nav-tabs" id="nav-tab" role="tablist">
-<input  className="form-control form-searcher" name="term" maxLength="16" onChange={onChange} placeholder="Buscar" />
-<p className="icon-user">Nombre de usuario<img  src={user} alt="user"/></p>
-</form> */}
- <div>
- <button className="btn add"><img src={add} alt=""/>Agregar documento</button>
- </div>
-</div>
- );
+const FrontBar = ({searcher}) => (
+  <div className="front">
+      {searcher}
+    <div className="front-user">
+      <p className="front-user-text"> Nombre usuario</p>
+      <img className="front-user-logo" src={user} alt="" />
+    </div>
+  </div>
+);
 
- export default FrontBar;
+export default FrontBar;
