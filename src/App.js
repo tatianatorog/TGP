@@ -7,6 +7,7 @@ import LogIn from "./pages/login";
 import Recover from "./pages/recover";
 import Home from "./pages/home";
 import formUpload from "./pages/form";
+import DocumentDetail from './pages/documentDetail'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 
@@ -23,6 +24,7 @@ function App() {
           <Route path="/recover" component={Recover} />
           <PriveteRoute exact path="/" route={Home} />
           <PriveteRoute path="/dataTable" route={formUpload} />
+          <PriveteRoute path="/documentDetail" route={DocumentDetail} />
         </Switch>
       </AuthProvider>
     </Router>

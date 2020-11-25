@@ -1,14 +1,19 @@
-import React from 'react';
-import { useState ,useEffect} from 'react';
+import React, { useContext } from 'react';
+import { useState } from 'react';
+import { Button } from "react-bootstrap";
+import { useHistory } from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.min.css";
-import { getUsers } from '../controllers/user';
-//import { DatePicker } from 'antd';
-//import 'antd/dist/antd.css'
+import { AuthContext} from '../context/AuthContext'
 
 const DataTable = () => {
-  
-  const [dataDoc,setData] = useState([]);
+  const { allDoc, setviewDoc } = useContext(AuthContext);
   const [term,setTerm] = useState('');
+  const history = useHistory();
+
+  const handleFileRedirect = (file) => {
+    setviewDoc(file);
+    history.push('/documentDetail');
+  }
 
   function searchingTerm(term){
       return function(x){
@@ -19,16 +24,10 @@ const DataTable = () => {
       }
   }
 
-
-  useEffect(() => {
-    setData([]);
-    getUsers((data)=>setData(data))
-  }, []); 
-
   return(
     <>
        <form>
-      <input name="term" maxLength="16" onChange={e => setTerm(e.target.value)} placeholder="buscar por..." autofocus required />
+      <input name="term" maxLength="16" onChange={e => setTerm(e.target.value)} placeholder="buscar por..." autoFocus required />
        <button type="submit">ir</button>    
        </form>
        
@@ -43,14 +42,15 @@ const DataTable = () => {
             </tr>
           </thead>
           <tbody>
-            {dataDoc.filter(searchingTerm(term)).map(i=>{
+            {allDoc.filter(searchingTerm(term)).map(i=>{
              // console.log(i);
-              return <tr key={i}>
+              return <tr key={i.id}>
                 <td>{i.entidad}</td>
                 <td>{i.expediente}</td>
                 <td>{i.motivo}</td>
                 <td>{i.tema}</td>
                 <td>{i.fecha_entrada}</td>
+                <td><Button variant="link" onClick={() => handleFileRedirect(i.id)}>Ver todo</Button></td>
               </tr>
             })}
           </tbody>
