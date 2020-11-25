@@ -6,13 +6,13 @@
 .image-login{
     background-image: url('../img/home-foto.png');
     background-size: cover;
-    background-color: var(--blue);
+    background-color: var(--primary);
     position: relative; 
 }
 
 .image-login > div{
     position: absolute;
-    background-color: var(--blue) !important;
+    background-color: var(--primary);
     top: 0;
     left: 0;
     width: 100%;
