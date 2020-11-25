@@ -38,7 +38,7 @@ const DataTable = () => {
       <div >
         <div className="card wrapper">
        <form className="nav nav-tabs" id="nav-tab" role="tablist">
-       <input  className="forma-control" name="term" maxLength="16" onChange={e => setTerm(e.target.value)} placeholder="Buscar" />
+       <input  className="form-control" name="term" maxLength="16" onChange={e => setTerm(e.target.value)} placeholder="Buscar" />
        <p className="icon-user">Nombre de usuario<img  src={user} alt="user"/></p>
        
        </form>
