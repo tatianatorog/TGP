@@ -9,7 +9,7 @@
     background-color:#0DADCC;
     color: #ffff;
 }
-.form-control{
+/*.form-control{
     background-image:url('../img/lupa.png') no-repeat;
     position:absolute;
     border-radius: 20px;
@@ -17,7 +17,7 @@
     width:292px;
     border:none;
     font-size:12px;
-}
+}*/
 .icon-user{
     margin: 40px 0px 10px 1045px;
 }

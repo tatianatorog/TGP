@@ -5,6 +5,7 @@ import PriveteRoute from "./components/priveteRoute";
 import SignUp from "./pages/signUp";
 import LogIn from "./pages/login";
 import Recover from "./pages/recover";
+import MydModalWithGrid from "./components/addTask";
 import Home from "./pages/home";
 import formUpload from "./pages/form";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -21,6 +22,7 @@ function App() {
           <Route path="/login" component={LogIn} />
           <Route path="/signup" component={SignUp} />
           <Route path="/recover" component={Recover} />
+          <Route path="/addTask" component={MydModalWithGrid} />
           <PriveteRoute exact path="/home" route={Home} />
           <PriveteRoute path="/dataTable" route={formUpload} />
         </Switch>
