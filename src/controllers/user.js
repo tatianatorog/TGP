@@ -16,4 +16,4 @@ const getUsers = (callback) => firebase.firestore().collection('documents')
     callback(gettingUsers);
   }));
 
-export { addUser, getUserById, getUsers, updateUser };
+export { addUser, getUserById, updateUser, getUsers};

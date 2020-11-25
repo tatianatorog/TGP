@@ -60,7 +60,7 @@ export default function Upload() {
 
   return (
     <div>
-      <Container className="">
+      <Container>
         <Form>
           <Form.Row>
             <Form.Group as={Col} controlId="formGridCity">

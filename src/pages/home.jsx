@@ -24,6 +24,7 @@ export default function Home() {
         </div>
     )
 } */
+
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { addUser } from '../controllers/user';
