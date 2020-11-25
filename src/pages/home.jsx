@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { getUsers } from '../controllers/user';
 import "../style/dataTable.css";
 import "../style/home.css";
-import NavigationBar from '../components/navBar';
+import MenuNav from '../components/menu';
 import add from '../img/add.png';
 import user from '../img/user.png'
 //import { DatePicker } from 'antd';
@@ -31,16 +31,16 @@ const DataTable = () => {
   }, []); 
 
   return(
+    <div className="page">
+     <MenuNav/>
     <div className="row">
-      <div className="card">
-        <NavigationBar/>
+      <div className="card">  
       </div>
       <div >
         <div className="card wrapper">
        <form className="nav nav-tabs" id="nav-tab" role="tablist">
-       <input  className="form-control" name="term" maxLength="16" onChange={e => setTerm(e.target.value)} placeholder="Buscar" />
+       <input  className="form-control form-searcher" name="term" maxLength="16" onChange={e => setTerm(e.target.value)} placeholder="Buscar" />
        <p className="icon-user">Nombre de usuario<img  src={user} alt="user"/></p>
-       
        </form>
         <div>
         <button className="btn add"><img src={add} alt=""/>Agregar documento</button>
@@ -58,7 +58,7 @@ const DataTable = () => {
           <tbody className="table-body">
             {dataDoc.filter(searchingTerm(term)).map(i=>{
              // console.log(i);
-              return <tr key={i.expediente}>
+              return <tr key={i + i.expediente}>
                 <td className="box-container">{i.entidad}</td>
                 <td>{i.expediente}</td>
                 <td>{i.motivo}</td>
@@ -70,6 +70,7 @@ const DataTable = () => {
         </table>
         </div>
         </div>
+    </div>
     </div>
   )
 }

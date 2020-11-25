@@ -9,11 +9,11 @@
     color:var(--primary-bg-color);
 }
 .table-bordered{
-    width: 1200px;
-    margin: 150px 50px 10px 50px;
+    width: 1140px;
+    margin: 130px 0px 0px 50px;
 }
 .wrapper{
-    width: 1350px;
+    width: 85vw;
 }
 .table-body{
     

@@ -1,5 +1,6 @@
 .menu{
     width:24px;
+    /* height: 100vh; */
     background-color: var(--input);
 }
 .menu-logo{

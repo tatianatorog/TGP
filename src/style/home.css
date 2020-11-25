@@ -5,20 +5,21 @@
     font-size: 10px;
 }
 .add{
-    margin: 50px 10px -100px 1045px;
+    margin: 50px 10px -100px 980px;
     background-color:#0DADCC;
     color: #ffff;
 }
-.form-control{
+.form-searcher{
     background-image:url('../img/lupa.png') no-repeat;
     position:absolute;
     border-radius: 20px;
-    margin: 30px 150px -100px 45px;
+    margin: 40px 150px -100px 45px;
     width:292px;
     border:none;
     font-size:12px;
 }
 .icon-user{
-    margin: 40px 0px 10px 1045px;
+    margin: 40px 0px 10px 1020px;
+    
 }
 
