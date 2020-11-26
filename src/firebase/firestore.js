@@ -5,24 +5,22 @@ function addDocument(data) {
     db.collection('documents').add(data);
   }
 
-  const updateTask = async (id, fields) => {
+  const updateTask = async (idDoc, idTareas, fields) => {
     try {
-      await db.collection('documents').doc(id).update(fields);
+      await db.collection('documents').doc(idDoc).collection('tareas').doc(idTareas).update(fields);
     } catch (error) {
       console.log(error);
     }
   };
   
-  function addSub(idDoc, exp, data){
-  db.collection('users').doc(idDoc).collection('tareas').doc(exp).set(
-   data
-  )
-}
+  
+
+  
 
   export  {
     addDocument,
-    updateTask,
-    addSub
+    updateTask
+    
   }
 
   
