@@ -14,6 +14,7 @@ export default function DocumentDetail() {
     const viewDoc = localStorage.getItem('file');
 
     const document = allDoc.find(doc => doc.id === viewDoc);
+   
 
     return (
         <section className='documentDetail-container'>
@@ -48,15 +49,30 @@ export default function DocumentDetail() {
                     </div> 
                 <MydModalWithGrid show={modalShow} onHide={() => setModalShow(false)} />
             </div>
-            </div>
             <div className='taskDetail-container'>
-                <Table>
-                <thead>
+                <Table className="table table-bordered">
+                <thead className="header">
                     <tr>
-                        
+                        <th>Estado</th>
+                        <th>Drescripción</th>
+                        <th>Área Encargada</th>
+                        <th>Fecha</th>
+                        <th/>
                     </tr>
                 </thead>
+                <tbody className="table-body"> 
+                    {document && document['tareas'].map(dataTask => (
+                        <tr>
+                        <td>dataTask.estado</td>
+                        <td>dataTask.descripcion</td>
+                        <td>dataTask.area</td>
+                        <td>dataTask.fecha</td>
+                        <td>detalles</td>
+                        </tr>
+                    ))}
+                </tbody>
                 </Table>
+            </div>
             </div>
         </section>
     )

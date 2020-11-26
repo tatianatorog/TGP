@@ -1,6 +1,11 @@
 .documentDetail-container{
     display: flex;
 }
+
+.documentDetail-general{
+    display: flex;
+    flex-direction: column;
+}
 .document-detail-main{
     width: 100%;
 }
@@ -22,4 +27,8 @@
     width: 200px;
     color: var(--text);
     font-weight: bold;
+}
+
+.taskDetail-container {
+    margin-bottom: 50px;
 }
