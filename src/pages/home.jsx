@@ -84,11 +84,11 @@ function DataTable() {
                   // console.log(i);
                   return (
                     <tr key={i.id}>
-                      <td className="box-container">{i.entidad}</td>
-                      <td>{i.expediente}</td>
-                      <td>{i.motivo}</td>
-                      <td>{i.tema}</td>
-                      <td>{i.fecha_entrada}</td>
+                      <td className="box-container tabla-item">{i.entidad}</td>
+                      <td className="tabla-item">{i.expediente}</td>
+                      <td className="tabla-item">{i.motivo}</td>
+                      <td className="tabla-item">{i.tema}</td>
+                      <td className="tabla-item">{i.fecha_entrada}</td>
                       <td>
                         <Button variant="link" 
                         onClick={() => seeDetailInModal(i.id)}>Detalles</Button>
