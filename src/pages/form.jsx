@@ -21,6 +21,7 @@ export default function FormUpload() {
   const [reason, setReason] = useState("");
   const [others, setOthers] = useState("");
   const [labels, setLabels] = useState("");
+  const [link, setLink] = useState("");
   const [file, setFile] = useState(null);
 
   const handleEntity = (e) => setEntity(e.currentTarget.value);
@@ -32,6 +33,7 @@ export default function FormUpload() {
   const handleReason = (e) => setReason(e.currentTarget.value);
   const handleOthers = (e) => setOthers(e.currentTarget.value);
   const handleLabels = (e) => setLabels(e.currentTarget.value);
+  const handleLink = (e) => setLink(e.currentTarget.value);
 
   function handleUpload(file) {
     const uploadTask = storage.ref(`oficios/${file.name}`).put(file);
@@ -65,8 +67,9 @@ export default function FormUpload() {
       fecha_entrada: nowDate,
       fecha_expiracion: expiredDate,
       motivo: reason,
-      Otros: others,
-      etiquetas: labels,
+      osignermin: others,
+      oefa:  labels,
+      link: link,
       archivo: url,
       tareas:[],
     };
@@ -201,13 +204,13 @@ export default function FormUpload() {
                   className="input-form"
                 >
                   <option>Selecciona...</option>
-                  <option>APORTES POR SU REGULACIÓN</option>
-                  <option>DERRAME/ FUGA/ SINIESTRO</option>
-                  <option>INCUMPLIMIENTO DEL EIA</option>
-                  <option>INFRACCIÓN DE NORMAS DEL SERVICIO</option>
+                  <option>-APORTES POR SU REGULACIÓN</option>
+                  <option>-DERRAME/ FUGA/ SINIESTRO</option>
+                  <option>-INCUMPLIMIENTO DEL EIA</option>
+                  <option>-INFRACCIÓN DE NORMAS DEL SERVICIO</option>
                   <option>
                     {" "}
-                    PRESENTACIÓN INFORMACIÓN INCOMPLETA O DEFECTUOSA
+                    -PRESENTACIÓN INFORMACIÓN INCOMPLETA O DEFECTUOSA
                   </option>
                 </Form.Control>
                 {/* <Form.Control value={others} onChange={handleOthers} required className ="input-form"/> */}
@@ -216,18 +219,27 @@ export default function FormUpload() {
               <Form.Group as={Col} controlId="formGridCity">
                 <Form.Label>Procedimientos OEFA </Form.Label>
                 <Form.Control
-                  // value={labels}
-                  // onChange={handleLabels}
-                  required
+                  as="select"
+                  defaultValue="Choose..."
+                  onChange={handleLabels}
                   className="input-form"
-                />
+                >
+                  <option>Selecciona...</option>
+                  <option>-DERRAME/ FUGA/ SINIESTRO</option>
+                  <option>-ALMACENAMIENTO INADEACUADO DE SUSTANCIAS QUIMICAS O RESIDUOS PELIGROSOS</option>
+                  <option>-INCUMPLIMIENTO DEL EIA--LMPs/ECAs DE RUIDO</option>
+                  <option>-INCUMPLIMIENTO DEL EIA --ETAPA DE CONSTRUCCION</option>
+                  <option>-INCUMPLIMIENTO DEL PLAN DE ABANDONO PARCIAl DE LAS LINEAS GN</option>
+                  <option>-INCUMPLIMIENTO DEL PLAN DE MONITOREO AMBIENTAL</option>
+                  <option>OTROS</option>
+                </Form.Control>
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridCity" >
               <Form.Label>Link del archivo </Form.Label>
                 <Form.Control
-                  // value={labels}
-                  // onChange={handleLabels}
+                  value={link}
+                  onChange={handleLink}
                   required
                   className="input-form"
                   />

@@ -13,17 +13,17 @@ export function MydModalWithGrid(props) {
         <Modal.Body className="show-grid">
           <Container>
             <Row>
-              <Col xs={6} md={4}>
+             
               <Form.Group as={Col} controlId="formGridCity">
               <Form.Label>Título</Form.Label>
               <Form.Control
-                type="number"
+                type="text"
                 value=""
                 onChange=""
                 required
               />
             </Form.Group>
-              </Col>
+             
             </Row>
             <Row>
               <Col>
@@ -43,7 +43,7 @@ export function MydModalWithGrid(props) {
               <Form.Group as={Col} controlId="formGridCity">
               <Form.Label>Fecha</Form.Label>
               <Form.Control
-                type="number"
+                type="date"
                 value=""
                 onChange=""
                 required
