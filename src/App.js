@@ -12,6 +12,7 @@ import DocumentDetail from './pages/documentDetail'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 import MydModalWrapperDoc from "./components/modalDoc";
+import ModalAddCont from "./components/modalCont"
 
 
 
@@ -26,6 +27,7 @@ function App() {
           <Route path="/recover" component={Recover} />
           <Route path="/addTask" component={MydModalWithGrid} />
           <Route path="/modalDoc" component={MydModalWrapperDoc} />
+          <Route path="/modalCont" component={ModalAddCont} />
           <PriveteRoute path="/home" route={Home} />
           <PriveteRoute path="/dataTable" route={formUpload} />
           <PriveteRoute path="/documentDetail" route={DocumentDetail} />

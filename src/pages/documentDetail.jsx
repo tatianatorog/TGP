@@ -7,11 +7,13 @@ import MenuNav from '../components/menu';
 import '../style/documentDetail.css';
 import FrontBar from "../components/frontbar";
 import {db} from "../firebase/firebase.config"
+import ModalAddCont from '../components/modalCont';
 
 
 export default function DocumentDetail() {
     const { allDoc } = useContext(AuthContext);
     const [modalShow, setModalShow] = useState(false);
+    const [modalShow1, setModalShow1] = useState(false);
     const viewDoc = localStorage.getItem('file');
 
     const document = allDoc.find(doc => doc.id === viewDoc);
@@ -37,7 +39,6 @@ console.log(tareas)
     return (
         <section className='documentDetail-container'>
             <MenuNav />
-    
             <div className='document-detail-main'>
                 <FrontBar />
                 <div className='documentDetail-container'>
@@ -66,8 +67,12 @@ console.log(tareas)
                 <Button variant="primary" className="add" onClick={() => setModalShow(true)}>
                     AGREGAR TAREA
                 </Button>
+                <Button variant="primary" className="add" onClick={() => setModalShow1(true)}>
+                    MONTO DE CONTINGENCIA
+                </Button>
                     </div> 
                 <MydModalWithGrid   show={modalShow} onHide={() => setModalShow(false)}  idDoc={document.id} exp={document.expediente} />
+                <ModalAddCont   show={modalShow1} onHide={() => setModalShow1(false)}  idDoc={document.id} exp={document.expediente} />
             </div>
             <div className='taskDetail-container'>
                 <Table className="table table-bordered">

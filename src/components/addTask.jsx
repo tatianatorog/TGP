@@ -1,9 +1,9 @@
 import { Button, Col, Row, Form, Container, Modal } from "react-bootstrap";
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import "../style/addTask.css";
 import { addSub } from "../controllers/user";
 // import {}
-import { db } from "../firebase/firebase.config";
+//import { db } from "../firebase/firebase.config";
 
 export function MydModalWithGrid({ show, onHide, idDoc, exp }) {
   const [descripcion, setDescripcion] = useState("");
@@ -21,6 +21,9 @@ export function MydModalWithGrid({ show, onHide, idDoc, exp }) {
       areaEncargada,
       completada: "No completada",
     });
+    setDescripcion('')
+    setFechaPlazo('')
+    setAreaEncargada('')
     
 
     console.log(idDoc, exp);
@@ -28,9 +31,9 @@ export function MydModalWithGrid({ show, onHide, idDoc, exp }) {
   
 
   return (
-    <Modal show={show} aria-labelledby="contained-modal-title-vcenter">
+    <Modal show={show} onHide={onHide} onaria-labelledby="contained-modal-title-vcenter">
       <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
+        <Modal.Title className="new"id="contained-modal-title-vcenter">
           Agregar tarea
         </Modal.Title>
       </Modal.Header>
@@ -87,6 +90,7 @@ export function MydModalWithGrid({ show, onHide, idDoc, exp }) {
           Guardar
         </Button>
       </Modal.Footer>
+      
     </Modal>
   );
 }
