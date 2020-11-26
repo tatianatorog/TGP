@@ -110,7 +110,7 @@ export default function DocumentDetail() {
                     <td className="input-form">{dataTask.areaEncargada}</td>
                     <td className="input-form">{dataTask.fechaPlazo}</td>
                     <td>
-                      <Button variant="link" onClick={() => setEdit(true)}>
+                      <Button  key={dataTask.id} variant="link" onClick={() => setEdit(true)}>
                         Editar
                       </Button>
                       <ModalEditTask
