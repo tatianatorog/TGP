@@ -21,14 +21,14 @@ export function MydModalWithGrid({ show, onHide, idDoc, exp }) {
       areaEncargada,
       completada: "No completada",
     });
-    
+
 
     console.log(idDoc, exp);
   };
-  
+
 
   return (
-    <Modal show={show} aria-labelledby="contained-modal-title-vcenter">
+    <Modal show={show}  aria-labelledby="contained-modal-title-vcenter">
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
           <p>{idDoc}</p>
