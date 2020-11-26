@@ -4,9 +4,16 @@
 .box-container{
     font-size: 10px;
 }
-.add{
-    margin: 50px 10px -100px 980px;
-    background-color:#0DADCC;
+.button-container{
+    display: flex;
+}
+.table-bordered {
+    margin: 0 30px !important;
+}
+.add {
+    margin: 30px 30px 30px auto ;
+    background-color:#0DADCC !important;
+    border-color:#0DADCC !important;
     color: #ffff;
 }
 .form-searcher{

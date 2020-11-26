@@ -12,21 +12,26 @@ import FrontBar from "../components/frontbar";
 import MydModalWrapperDoc from "../components/modalDoc";
 
 function DataTable() {
-  const { allDoc, setviewDoc } = useContext(AuthContext);
+  const { allDoc,setviewDoc } = useContext(AuthContext);
   const [term, setTerm] = useState("");
   const [modalShow, setModalShow] = useState(false);
   const history = useHistory();
-  console.log(allDoc)
+
 
   const handleFileRedirect = (file) => {
-    setviewDoc(file);
+    localStorage.setItem('file',file)
     history.push("/documentDetail");
   };
   const addDataTable = () => {
     history.push("/dataTable");
   };
   
- 
+  const seeDetailInModal = (file) => {
+    setviewDoc(file)
+    setModalShow(true);
+  };
+
+
   function searchingTerm(term) {
     return function (x) {
       return (
@@ -42,10 +47,9 @@ function DataTable() {
   return (
     <div className="page">
       <MenuNav />
-      <div className="row">
-        <div className="card"></div>
+      <div className="row row-home">
         <div>
-          <div className="card wrapper">
+          <div className="page-content">
             <FrontBar
               searcher={
                 <input
@@ -57,10 +61,10 @@ function DataTable() {
                 />
               }
             ></FrontBar>
-            <div>
+            <div className='button-container'>
               <button className="btn add" onClick={addDataTable}>
                 <img src={add} alt="" />
-                Agregar documento
+                <div>AGREGAR DOCUMENTO</div>
               </button>
             </div>
             <table className="table table-bordered">
@@ -87,8 +91,8 @@ function DataTable() {
                       <td>{i.fecha_entrada}</td>
                       <td>
                         <Button variant="link" 
-                        onClick={() => setModalShow(true)}>Detalles</Button>
-            <MydModalWrapperDoc show={modalShow} onHide={() => setModalShow(false)} />
+                        onClick={() => seeDetailInModal(i.id)}>Detalles</Button>
+                     <MydModalWrapperDoc show={modalShow} onHide={() => setModalShow(false)} />
                       </td>
                       <td>
                         <Button
