@@ -23,11 +23,11 @@ export function MydModalWrapperDoc(props) {
           <Table>
                 <tbody>
                 { document && 
-                  <div className="description-document">
-                    <tr className="description-document">
-                        <tr className="description-document">
-                        <th className="description-document">Entidad</th>
-                        <td className="description-document">{document.entidad}</td>
+                  <div >
+                    <tr>
+                        <tr >
+                        <th >Entidad</th>
+                        <td >{document.entidad}</td>
                        </tr>
                        <tr>
                         <th>No.Expediente</th>
