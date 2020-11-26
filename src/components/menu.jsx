@@ -1,6 +1,7 @@
 import React from "react";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Menu } from 'antd';
-import {  HomeFilled , SettingOutlined, HddFilled } from '@ant-design/icons';
+import {  HomeFilled , HddFilled } from '@ant-design/icons';
 import 'antd/dist/antd.css'
 import '../style/menu.css'
 import logo from '../img/logo.png'
@@ -24,6 +25,7 @@ const rootSubmenuKeys = ['sub1', 'sub2', 'sub4'];
   };
 
   return (
+  
     <Menu mode="inline" className="menu"openKeys={openKeys} onOpenChange={onOpenChange} style={{ width: 224 }}>
         <img src={logo} alt="logo" className="menu-logo"/>
         <p className="logo-title1">Plataforma de acceso</p><p className="logo-title">a documentos </p>
@@ -33,6 +35,7 @@ const rootSubmenuKeys = ['sub1', 'sub2', 'sub4'];
         <Menu.Item key="3">Option 3</Menu.Item>
         <Menu.Item key="4">Option 4</Menu.Item> */}
         Principal
+        <Link to="/home" />
       </Menu.Item>
       <SubMenu key="sub2" icon={<HddFilled />} title="TGP">
       <Menu.Item key="4">G.Legal</Menu.Item>
@@ -47,6 +50,7 @@ const rootSubmenuKeys = ['sub1', 'sub2', 'sub4'];
         <Menu.Item key="12">Option 12</Menu.Item>
       </SubMenu>
     </Menu>
+   
   );
 };
 

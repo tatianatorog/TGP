@@ -4,12 +4,10 @@ import { addUser } from "../controllers/user";
 import { useHistory } from "react-router-dom";
 import { Button, Form, Col, Container } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import MenuNav from "../components/menu"
-import FrontBar from "../components/frontbar"
+import MenuNav from "../components/menu";
+import FrontBar from "../components/frontbar";
 import "../style/form.css";
 import "../style/frontBar.css";
-import add from '../img/add.png';
-import user from '../img/user.png'
 
 export default function FormUpload() {
   const history = useHistory();
@@ -70,13 +68,13 @@ export default function FormUpload() {
       Otros: others,
       etiquetas: labels,
       archivo: url,
+      tareas:[],
     };
 
-    addUser(info)
-    .then((docRef) => {
-     history.push({
-    pathname: "/home",
-    state: { userId: docRef.id },
+    addUser(info).then((docRef) => {
+      history.push({
+        pathname: "/home",
+        state: { userId: docRef.id },
       });
     });
 
@@ -95,152 +93,177 @@ export default function FormUpload() {
 
   return (
     <div className="page">
-  
-
       <MenuNav></MenuNav>
       <div className="page-content">
-      {/* <div className="front">
+        {/* <div className="front">
         <div className="front-user">
         <p className="front-user-text"> Nombre usuario</p>
         <img className="front-user-logo" src={user} alt=""/>
         </div>
       </div> */}
-      <FrontBar></FrontBar>
-      <Container className="container-form">
-        <h2 className="title-form">AGREGAR DOCUMENTO</h2>
-        <p>Ingresa los datos solicitados y luego presiona GUARDAR</p>
-        <Form>
-          <Form.Row>
-            <Form.Group as={Col} controlId="formGridState">
-              <Form.Label>Entidad</Form.Label>
-              <Form.Control className ="input-form"
-                as="select"
-                defaultValue="Choose..."
-                onChange={handleEntity}
-              >
-                <option>Selecciona...</option>
-                <option>OSINERGMIN</option>
-                <option>OEFA</option>
-                <option>MINEM</option>
-              </Form.Control>
-            </Form.Group>
+        <FrontBar></FrontBar>
+        <Container className="container-form">
+          <h2 className="title-form">AGREGAR DOCUMENTO</h2>
+          <p>Ingresa los datos solicitados y luego presiona GUARDAR</p>
+          <Form>
+            <Form.Row>
+              <Form.Group as={Col} controlId="formGridState">
+                <Form.Label>Entidad</Form.Label>
+                <Form.Control
+                  className="input-form"
+                  as="select"
+                  defaultValue="Choose..."
+                  onChange={handleEntity}
+                >
+                  <option>Selecciona...</option>
+                  <option>OSINERGMIN</option>
+                  <option>OEFA</option>
+                  <option>MINEM</option>
+                </Form.Control>
+              </Form.Group>
 
-            <Form.Group as={Col} controlId="formGridCity">
-              <Form.Label>Número de Expediente</Form.Label>
+              <Form.Group as={Col} controlId="formGridCity">
+                <Form.Label>Número de Expediente</Form.Label>
+                <Form.Control
+                  type="number"
+                  value={record}
+                  onChange={handleRecord}
+                  required
+                  className="input-form"
+                />
+              </Form.Group>
+
+              <Form.Group as={Col} controlId="formGridZip">
+                <Form.Label>Tema</Form.Label>
+                <Form.Control
+                  value={topic}
+                  onChange={handleTopic}
+                  className="input-form"
+                />
+              </Form.Group>
+            </Form.Row>
+
+            <Form.Group controlId="exampleForm.ControlTextarea1">
+              <Form.Label>Motivo</Form.Label>
               <Form.Control
-                type="number"
-                value={record}
-                onChange={handleRecord}
+                className="input-form"
+                as="textarea"
+                rows={3}
+                value={reason}
+                onChange={handleReason}
                 required
-                className ="input-form"
               />
             </Form.Group>
+            <Form.Row>
+              <Form.Group as={Col} controlId="formGridState">
+                <Form.Label>Area legal encargada</Form.Label>
+                <Form.Control
+                  as="select"
+                  defaultValue="Choose..."
+                  onChange={handleArea}
+                  className="input-form"
+                >
+                  <option>Selecciona...</option>
+                  <option>TGP</option>
+                  <option>COGA</option>
+                </Form.Control>
+              </Form.Group>
 
-            <Form.Group as={Col} controlId="formGridZip">
-              <Form.Label>Tema</Form.Label>
-              <Form.Control value={topic} onChange={handleTopic} className ="input-form"  />
-            </Form.Group>
-          </Form.Row>
+              <Form.Group as={Col} controlId="formGridCity">
+                <Form.Label>Fecha de recepción</Form.Label>
+                <Form.Control
+                  type="date"
+                  value={expiredDate}
+                  onChange={handleExpiredDate}
+                  required
+                  className="input-form"
+                />
+              </Form.Group>
 
-          <Form.Group controlId="exampleForm.ControlTextarea1">
-            <Form.Label>Motivo</Form.Label>
-            <Form.Control
-            className ="input-form"
-              as="textarea"
-              rows={3}
-              value={reason}
-              onChange={handleReason}
-              required
-            />
-          </Form.Group>
-          <Form.Row>
-            <Form.Group as={Col} controlId="formGridState">
-              <Form.Label>Area legal encargada</Form.Label>
-              <Form.Control
-                as="select"
-                defaultValue="Choose..."
-                onChange={handleArea}
-                className ="input-form"
-              >
-                <option>Selecciona...</option>
-                <option>TGP</option>
-                <option>COGA</option>
-              </Form.Control>
-            </Form.Group>
+              <Form.Group as={Col}>
+                <Form.Label>Fecha de vencimiento</Form.Label>
+                <Form.Control
+                  type="date"
+                  value={nowDate}
+                  onChange={handleNowDate}
+                  required
+                  className="input-form"
+                />
+              </Form.Group>
+            </Form.Row>
+            <Form.Row>
+              <Form.Group as={Col} controlId="formGridState">
+                <Form.Label>Procedimientos OSINERGMIN</Form.Label>
+                <Form.Control
+                  as="select"
+                  defaultValue="Choose..."
+                  onChange={handleOthers}
+                  className="input-form"
+                >
+                  <option>Selecciona...</option>
+                  <option>APORTES POR SU REGULACIÓN</option>
+                  <option>DERRAME/ FUGA/ SINIESTRO</option>
+                  <option>INCUMPLIMIENTO DEL EIA</option>
+                  <option>INFRACCIÓN DE NORMAS DEL SERVICIO</option>
+                  <option>
+                    {" "}
+                    PRESENTACIÓN INFORMACIÓN INCOMPLETA O DEFECTUOSA
+                  </option>
+                </Form.Control>
+                {/* <Form.Control value={others} onChange={handleOthers} required className ="input-form"/> */}
+              </Form.Group>
 
-            <Form.Group as={Col} controlId="formGridCity">
-              <Form.Label>Fecha de recepción</Form.Label>
-              <Form.Control
-                type="date"
-                value={expiredDate}
-                onChange={handleExpiredDate}
-                required
-                className ="input-form"
-              />
-            </Form.Group>
+              <Form.Group as={Col} controlId="formGridCity">
+                <Form.Label>Procedimientos OEFA </Form.Label>
+                <Form.Control
+                  // value={labels}
+                  // onChange={handleLabels}
+                  required
+                  className="input-form"
+                />
+              </Form.Group>
 
-            <Form.Group as={Col}>
-              <Form.Label>Fecha de vencimiento</Form.Label>
-              <Form.Control
-                type="date"
-                value={nowDate}
-                onChange={handleNowDate}
-                required
-                className ="input-form"
-              />
-            </Form.Group>
-          </Form.Row>
-          <Form.Row>
-            <Form.Group as={Col} controlId="formGridState">
-              <Form.Label>Otros</Form.Label>
-              <Form.Control
-                as="select"
-                defaultValue="Choose..."
-                onChange={handleOthers}
-                className ="input-form"
-              >
-                <option>Selecciona...</option>
-                <option>APORTES POR SU REGULACIÓN</option>
-                <option>DERRAME/ FUGA/ SINIESTRO</option>
-              </Form.Control>
-              {/* <Form.Control value={others} onChange={handleOthers} required className ="input-form"/> */}
-            </Form.Group>
-
-            <Form.Group as={Col} controlId="formGridCity">
-              <Form.Label>Agregar etiqueta</Form.Label>
-              <Form.Control value={labels} onChange={handleLabels} required className ="input-form"/>
-            </Form.Group>
-
-            <Form.Group>
+              <Form.Group as={Col} controlId="formGridCity" >
+              <Form.Label>Link del archivo </Form.Label>
+                <Form.Control
+                  // value={labels}
+                  // onChange={handleLabels}
+                  required
+                  className="input-form"
+                  />
+              </Form.Group>
+            </Form.Row>
+            <Form.Row>
+              <Form.Group >
               <Form.File
                 id="exampleFormControlFile1"
                 label="Sube el documento"
                 type="file"
                 onChange={handleChange}
               />
-            </Form.Group>
-          </Form.Row>
+              </Form.Group>
+            </Form.Row>
 
-          <Button
-            className="btn-form"
-            variant="primary"
-            disabled={
-              !file ||
-              !url ||
-              !entity ||
-              !record ||
-              !topic ||
-              !area ||
-              !nowDate ||
-              !expiredDate ||
-              !reason 
-            }
-            onClick={handleSend}
-          >
-            Guardar
-          </Button>
-        </Form>
-      </Container>
+            <Button
+              className="btn-form"
+              variant="primary"
+              // disabled={
+               
+              //   !url ||
+              //   !entity ||
+              //   !record ||
+              //   !topic ||
+              //   !area ||
+              //   !nowDate ||
+              //   !expiredDate ||
+              //   !reason
+              // }
+              onClick={handleSend}
+            >
+              Guardar
+            </Button>
+          </Form>
+        </Container>
       </div>
     </div>
   );
