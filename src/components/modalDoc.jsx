@@ -10,7 +10,7 @@ import { AuthContext } from "../context/AuthContext";
 export function MydModalWrapperDoc(props) {
     const { viewDoc,allDoc } = useContext(AuthContext);
     const document = allDoc.find(doc => doc.id === viewDoc);
-    console.log(viewDoc)
+    
     return (
       <Modal {...props} aria-labelledby="contained-modal-title-vcenter">
         <Modal.Header closeButton>
@@ -22,45 +22,46 @@ export function MydModalWrapperDoc(props) {
           <Container>
           <Table>
                 <tbody>
-                { document &&   
+                { document && 
+                  <div >
                     <tr>
-                        <tr>
-                        <td>Entidad</td>
-                        <td>{document.entidad}</td>
+                        <tr >
+                        <th >Entidad</th>
+                        <td >{document.entidad}</td>
                        </tr>
                        <tr>
-                        <td>No.Expediente</td>
+                        <th>No.Expediente</th>
                         <td>{document.expediente}</td>
                     </tr>
                     <tr>
-                        <td>Motivo</td>
+                        <th>Motivo</th>
                         <td>{document.motivo}</td>
                     </tr>
                     <tr>
-                        <td>Tema</td>
+                        <th>Tema</th>
                         <td>{document.tema}</td>
                     </tr>
                     <tr>
-                        <td>Fecha de Recepción</td>
+                        <th>Fecha de Recepción</th>
                         <td>{document['fecha_entrada']}</td>
                     </tr>
                     <tr>
-                        <td>Fecha de Vencimiento</td>
+                        <th>Fecha de Vencimiento</th>
                         <td>{document['fecha_expiracion']}</td>
                     </tr>
                     <tr>
-                        <td>Área Encargada</td>
+                        <th>Área Encargada</th>
                         <td>{document['Area']}</td>
                     </tr>
                     <tr>
-                        <td>Otros</td>
+                        <th>Otros</th>
                         <td>{document['Otros']}</td>
                     </tr>
                      
                     </tr>
-                
+                </div>
                 }
-                    
+
                 </tbody>
             </Table>
   
