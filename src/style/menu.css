@@ -1,6 +1,5 @@
 .menu{
     width:24px;
-    /* height: 100vh; */
     background-color: var(--input);
 }
 .menu-logo{
@@ -32,6 +31,7 @@
 }
 li{
     margin:0px;
+    min-width: 180px;
 }
 .ant-menu-vertical {
     margin:0px;

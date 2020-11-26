@@ -2,7 +2,8 @@ import React, { useState, useRef } from 'react';
 import { logIn } from '../firebase/auth';
 import { Link, useHistory } from 'react-router-dom';
 import { Alert, Button, Form } from 'react-bootstrap';
-import '../style/login.css'
+import logo from '../img/logotitle.svg'
+import '../style/login.css';
 
 
 export default function Login() {
@@ -36,6 +37,7 @@ export default function Login() {
                 <div></div> 
             </div>
             <div className='login-form'>
+            <img src={logo} alt="logo" className="menu-logo" width='150' height='auto'/>
                 <p>Plataforma de acceso a documentos</p>
                 <Form onSubmit={handleSubmit}>
                     {error && <Alert variant="danger">{error}</Alert>}

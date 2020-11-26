@@ -15,7 +15,6 @@ export default function DocumentDetail() {
 
     const document = allDoc.find(doc => doc.id === viewDoc);
    
-
     return (
         <section className='documentDetail-container'>
             <MenuNav />
