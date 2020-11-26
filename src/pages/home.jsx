@@ -10,14 +10,34 @@ import MenuNav from "../components/menu";
 import add from "../img/add.png";
 import FrontBar from "../components/frontbar";
 import MydModalWrapperDoc from "../components/modalDoc";
+import ToastTask from '../components/toastTask'
 
 function DataTable() {
-  const { allDoc,setviewDoc } = useContext(AuthContext);
+  const { allDoc,setviewDoc, taskNot } = useContext(AuthContext);
   const [term, setTerm] = useState("");
   const [modalShow, setModalShow] = useState(false);
   const history = useHistory();
-
-
+  const dateNow = new Date();
+   const notificacion = taskNot ? taskNot.map(task => {
+    const firebaseDate = Date.parse(task.fechaPlazo);
+    const diffTime = Math.abs(firebaseDate - dateNow);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    return diffDays <= 10 ? {'days':diffDays, 'areaEncargada': task.areaEncargada, 'tema' : task.tema} : null
+  }) : null;
+  
+  /*notificacion && notificacion.forEach(e => {
+    if (e.diffDays === 10) {
+         toast.success(`${e.areaEncargada} tiene ${e.diffDays} días para terminar 
+        la tarea pendiente de ${e.tema}`)
+    } else if (e.diffDays === 5 ) {
+       toast.warn(`${e.areaEncargada} tiene ${e.diffDays} días para terminar 
+      la tarea pendiente de ${e.tema}`)
+    }else if (e.diffDays === 3) {
+       toast.error(`${e.areaEncargada} tiene ${e.diffDays} días para terminar 
+      la tarea pendiente de ${e.tema}`)
+    }
+  })*/
+  
   const handleFileRedirect = (file) => {
     localStorage.setItem('file',file)
     history.push("/documentDetail");
@@ -30,7 +50,6 @@ function DataTable() {
     setviewDoc(file)
     setModalShow(true);
   };
-
 
   function searchingTerm(term) {
     return function (x) {
@@ -46,6 +65,9 @@ function DataTable() {
 
   return (
     <div className="page">
+      <div className='notification-container'>
+      {notificacion && notificacion.map(item => <ToastTask time={item.days} area={item.areaEncargada} topic={item.tema} /> )}
+      </div>
       <MenuNav />
       <div className="row row-home">
         <div>

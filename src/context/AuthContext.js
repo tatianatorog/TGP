@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from 'react';
 import { auth } from '../firebase/firebase.config'
-import { getUsers} from '../controllers/user'
+import { getUsers, getTaskNot} from '../controllers/user'
 
 export const AuthContext = React.createContext()
 
@@ -9,6 +9,7 @@ export  function AuthProvider({children}) {
     const [loading, setloading] = useState(true);
     const [allDoc,setAllDoc] = useState([]);
     const [viewDoc, setviewDoc] = useState();
+    const [taskNot, setTaskNot] = useState();
     
     useEffect(() => {
        const unsubcribe =  auth.onAuthStateChanged(user => {
@@ -17,13 +18,14 @@ export  function AuthProvider({children}) {
         });
         if(currentUser) {
         getUsers((data)=>setAllDoc(data))
+        getTaskNot((data)=>setTaskNot(data))
         }
         return unsubcribe
     },[currentUser]);
 
 
     return (
-        <AuthContext.Provider value={{currentUser, allDoc, viewDoc, setviewDoc}}>
+        <AuthContext.Provider value={{currentUser, allDoc, viewDoc, setviewDoc, taskNot}}>
             {!loading && children}
         </AuthContext.Provider>
     )
