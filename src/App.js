@@ -11,6 +11,7 @@ import formUpload from "./pages/form";
 import DocumentDetail from './pages/documentDetail'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
+import MydModalWrapperDoc from "./components/modalDoc";
 
 
 
@@ -24,6 +25,7 @@ function App() {
           <Route path="/signup" component={SignUp} />
           <Route path="/recover" component={Recover} />
           <Route path="/addTask" component={MydModalWithGrid} />
+          <Route path="/modalDoc" component={MydModalWrapperDoc} />
           <PriveteRoute path="/home" route={Home} />
           <PriveteRoute path="/dataTable" route={formUpload} />
           <PriveteRoute path="/documentDetail" route={DocumentDetail} />
