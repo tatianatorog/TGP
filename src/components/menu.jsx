@@ -1,11 +1,12 @@
-import React from "react";
-import {  Link } from "react-router-dom";
+import React, {useState} from "react";
+import {  Link, useHistory } from "react-router-dom";
 import { Menu } from 'antd';
-import {  HomeFilled , HddFilled } from '@ant-design/icons';
-import 'antd/dist/antd.css'
-import '../style/menu.css'
-import logo from '../img/logo.svg'
-
+import { signOut } from '../firebase/auth';
+import { Alert } from 'react-bootstrap';
+import {  HomeFilled , HddFilled, WalletFilled } from '@ant-design/icons';
+import 'antd/dist/antd.css';
+import '../style/menu.css';
+import logo from '../img/logo.svg';
 
 const { SubMenu } = Menu;
 
@@ -14,6 +15,8 @@ const rootSubmenuKeys = ['sub1', 'sub2', 'sub4'];
 
  const MenuNav = () => {
   const [openKeys, setOpenKeys] = React.useState(['sub1']);
+  const [error, setError] = useState();
+  const history = useHistory();
 
   const onOpenChange = keys => {
     const latestOpenKey = keys.find(key => openKeys.indexOf(key) === -1);
@@ -23,7 +26,16 @@ const rootSubmenuKeys = ['sub1', 'sub2', 'sub4'];
       setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
     }
   };
-
+  const handleLogOut = async() => {
+    try {
+        setError('');
+        await signOut();
+        history.push('/');
+    } catch {
+        setError('No se puede cerrar sesión');
+    };
+    
+}
   return (
   
     <Menu mode="inline" className="menu"openKeys={openKeys} onOpenChange={onOpenChange} style={{ width: 224 }}>
@@ -66,6 +78,8 @@ const rootSubmenuKeys = ['sub1', 'sub2', 'sub4'];
         <Menu.Item key="23">Gestión Social</Menu.Item>
         </SubMenu>
       </SubMenu>
+      <Menu.Item key="24" icon={<WalletFilled />} onClick={handleLogOut}>Cerrar Sesión</Menu.Item>
+      {error && <Alert variant="danger">{error}</Alert>}
     </Menu>
    
   );
