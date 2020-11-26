@@ -30,12 +30,13 @@ export default function DocumentDetail() {
                         <tbody>
                             <tr>
                                 <td>Monto de Contingencia</td>
-                                <td><div contentEditable style={{ width: 200 }}>{document['monto']}</div></td>
+                                <td>{document['monto']}</td>
                             </tr>
                             <tr>
                                 <td>Archivos Adjuntos</td>
                                 <td>
-                                    <a href={document.archivo} target="blank">File</a>
+                                   { document.archivo && <a href={document.archivo} target="blank">{document.expediente}</a>}
+                                   { document.link && <a href={document.link} target="blank">{document.expediente}</a>}
                                 </td>
                             </tr>
                         </tbody>
