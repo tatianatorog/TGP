@@ -21,6 +21,7 @@ export  function AuthProvider({children}) {
         return unsubcribe
     },[currentUser]);
 
+
     return (
         <AuthContext.Provider value={{currentUser, allDoc, viewDoc, setviewDoc}}>
             {!loading && children}

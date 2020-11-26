@@ -67,7 +67,15 @@ export default function FormUpload() {
     }
 
     setValidated(true);
-
+ if( url &&
+    entity &&
+    record &&
+    topic &&
+    area &&
+    nowDate &&
+    expiredDate &&
+    reason)
+    {
     const info = {
       entidad: entity,
       expediente: record,
@@ -81,7 +89,8 @@ export default function FormUpload() {
       link: link,
       archivo: url,
       tareas:[],
-    };
+    }
+  
 
     addUser(info).then((docRef) => {
       history.push({
@@ -89,7 +98,7 @@ export default function FormUpload() {
         state: { userId: docRef.id },
       });
     });
-
+  
     setEntity("");
     setRecord("");
     setReason("");
@@ -101,6 +110,7 @@ export default function FormUpload() {
     setOthers("");
     setLabels("");
     setFile(null);
+  }
   };
 
   function handleSend() {
