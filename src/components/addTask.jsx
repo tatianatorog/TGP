@@ -31,7 +31,7 @@ export function MydModalWithGrid({ show, onHide, idDoc, exp }) {
     <Modal show={show} aria-labelledby="contained-modal-title-vcenter">
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          <p>{idDoc}</p>
+          Agregar tarea
         </Modal.Title>
       </Modal.Header>
       <Modal.Body className="show-grid">
