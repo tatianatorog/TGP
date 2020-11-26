@@ -23,6 +23,7 @@ export default function FormUpload() {
   const [labels, setLabels] = useState("");
   const [link, setLink] = useState("");
   const [file, setFile] = useState(null);
+  const [validated, setValidated] = useState(false);
 
   const handleEntity = (e) => setEntity(e.currentTarget.value);
   const handleRecord = (e) => setRecord(e.currentTarget.value);
@@ -58,7 +59,54 @@ export default function FormUpload() {
   //   db.collection("expedientes").add(data);
   // }
 
+  const handleSubmit = (event) => {
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    setValidated(true);
+
+    const info = {
+      entidad: entity,
+      expediente: record,
+      tema: topic,
+      Area: area,
+      fecha_entrada: nowDate,
+      fecha_expiracion: expiredDate,
+      motivo: reason,
+      osignermin: others,
+      oefa:  labels,
+      link: link,
+      archivo: url,
+      tareas:[],
+    };
+
+    addUser(info).then((docRef) => {
+      history.push({
+        pathname: "/home",
+        state: { userId: docRef.id },
+      });
+    });
+
+    setEntity("");
+    setRecord("");
+    setReason("");
+    setTopic("");
+    setArea("");
+    setNowDate("");
+    setExpiredDate("");
+    setReason("");
+    setOthers("");
+    setLabels("");
+    setFile(null);
+  };
+
   function handleSend() {
+    
+     
+
     const info = {
       entidad: entity,
       expediente: record,
@@ -108,11 +156,12 @@ export default function FormUpload() {
         <Container className="container-form">
           <h2 className="title-form">AGREGAR DOCUMENTO</h2>
           <p>Ingresa los datos solicitados y luego presiona GUARDAR</p>
-          <Form>
+          <Form validated={validated}>
             <Form.Row>
               <Form.Group as={Col} controlId="formGridState">
                 <Form.Label>Entidad</Form.Label>
                 <Form.Control
+                 required
                   className="input-form"
                   as="select"
                   defaultValue="Choose..."
@@ -136,12 +185,14 @@ export default function FormUpload() {
                 />
               </Form.Group>
 
-              <Form.Group as={Col} controlId="formGridZip">
+              <Form.Group as={Col} controlId="formGridTopic">
                 <Form.Label>Tema</Form.Label>
                 <Form.Control
+                 
                   value={topic}
                   onChange={handleTopic}
                   className="input-form"
+                  required
                 />
               </Form.Group>
             </Form.Row>
@@ -156,7 +207,11 @@ export default function FormUpload() {
                 onChange={handleReason}
                 required
               />
+              <Form.Control.Feedback type="invalid">
+              Please choose a username.
+              </Form.Control.Feedback>
             </Form.Group>
+            
             <Form.Row>
               <Form.Group as={Col} controlId="formGridState">
                 <Form.Label>Area legal encargada</Form.Label>
@@ -165,6 +220,7 @@ export default function FormUpload() {
                   defaultValue="Choose..."
                   onChange={handleArea}
                   className="input-form"
+                  required
                 >
                   <option>Selecciona...</option>
                   <option>TGP</option>
@@ -202,6 +258,7 @@ export default function FormUpload() {
                   defaultValue="Choose..."
                   onChange={handleOthers}
                   className="input-form"
+                  required
                 >
                   <option>Selecciona...</option>
                   <option>-APORTES POR SU REGULACIÓN</option>
@@ -223,6 +280,7 @@ export default function FormUpload() {
                   defaultValue="Choose..."
                   onChange={handleLabels}
                   className="input-form"
+                  required
                 >
                   <option>Selecciona...</option>
                   <option>-DERRAME/ FUGA/ SINIESTRO</option>
@@ -270,7 +328,7 @@ export default function FormUpload() {
               //   !expiredDate ||
               //   !reason
               // }
-              onClick={handleSend}
+              onClick={handleSubmit}
             >
               Guardar
             </Button>

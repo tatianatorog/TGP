@@ -15,7 +15,7 @@ export function MydModalWithGrid(props) {
             <Row>
              
               <Form.Group as={Col} controlId="formGridCity">
-              <Form.Label>Título</Form.Label>
+              <Form.Label>Descripción</Form.Label>
               <Form.Control
                 type="text"
                 value=""
@@ -30,11 +30,17 @@ export function MydModalWithGrid(props) {
               <Form.Group as={Col} controlId="formGridCity">
               <Form.Label>Área encargada</Form.Label>
               <Form.Control
-                type="text"
-                value=""
-                onChange=""
-                required
-              />
+                 required
+                  className="input-form"
+                  as="select"
+                  defaultValue="Choose..."
+                  
+                >
+                  <option>Selecciona...</option>
+                  <option>OSINERGMIN</option>
+                  <option>OEFA</option>
+                  <option>MINEM</option>
+                </Form.Control>
             </Form.Group>
               </Col>
             </Row>
