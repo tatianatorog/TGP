@@ -9,11 +9,14 @@ import "../style/home.css";
 import MenuNav from "../components/menu";
 import add from "../img/add.png";
 import FrontBar from "../components/frontbar";
+import MydModalWrapperDoc from "../components/modalDoc";
 
 function DataTable() {
   const { allDoc, setviewDoc } = useContext(AuthContext);
   const [term, setTerm] = useState("");
+  const [modalShow, setModalShow] = useState(false);
   const history = useHistory();
+  console.log(allDoc)
 
   const handleFileRedirect = (file) => {
     setviewDoc(file);
@@ -22,7 +25,8 @@ function DataTable() {
   const addDataTable = () => {
     history.push("/dataTable");
   };
-
+  
+ 
   function searchingTerm(term) {
     return function (x) {
       return (
@@ -82,7 +86,9 @@ function DataTable() {
                       <td>{i.tema}</td>
                       <td>{i.fecha_entrada}</td>
                       <td>
-                        <Button variant="link">Detalles</Button>
+                        <Button variant="link" 
+                        onClick={() => setModalShow(true)}>Detalles</Button>
+            <MydModalWrapperDoc show={modalShow} onHide={() => setModalShow(false)} />
                       </td>
                       <td>
                         <Button
