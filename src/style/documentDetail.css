@@ -1,8 +1,16 @@
 .documentDetail-container{
     display: flex;
 }
+
+.documentDetail-general{
+    display: flex;
+    flex-direction: column;
+}
+.document-detail-main{
+    width: 100%;
+}
 .description-document {
-    width: 50%;
+    width: 70%;
     padding: 50px;
 }
 
@@ -19,4 +27,8 @@
     width: 200px;
     color: var(--text);
     font-weight: bold;
+}
+
+.taskDetail-container {
+    margin-bottom: 50px;
 }
