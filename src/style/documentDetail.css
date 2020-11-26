@@ -1,8 +1,11 @@
 .documentDetail-container{
     display: flex;
 }
+.document-detail-main{
+    width: 100%;
+}
 .description-document {
-    width: 50%;
+    width: 70%;
     padding: 50px;
 }
 

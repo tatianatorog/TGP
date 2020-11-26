@@ -4,46 +4,60 @@ import ListDocument from '../components/listDocument';
 import { Button, Table } from "react-bootstrap";
 import MydModalWithGrid from "../components/addTask";
 import MenuNav from '../components/menu';
-import '../style/documentDetail.css'
-
-
-
-
+import '../style/documentDetail.css';
+import FrontBar from "../components/frontbar";
 
 
 export default function DocumentDetail() {
-    const { viewDoc, allDoc } = useContext(AuthContext);
+    const { allDoc } = useContext(AuthContext);
     const [modalShow, setModalShow] = useState(false);
-    
+    const viewDoc = localStorage.getItem('file');
+
     const document = allDoc.find(doc => doc.id === viewDoc);
 
     return (
         <section className='documentDetail-container'>
-            <MenuNav/>
-            <div className='description-document'>
-                <h1>{document.tema}</h1>
-                <ListDocument data={document} />
+            <MenuNav />
+            <div className='document-detail-main'>
+                <FrontBar />
+                <div className='documentDetail-container'>
+                { document &&
+                <div className='description-document'>
+                    <h1>{document.tema}</h1>
+                    <ListDocument data={document} />
+                    <Table>
+                        <tbody>
+                            <tr>
+                                <td>Monto de Contingencia</td>
+                                <td><div contentEditable style={{ width: 200 }}>{document['monto']}</div></td>
+                            </tr>
+                            <tr>
+                                <td>Archivos Adjuntos</td>
+                                <td>
+                                    <a href={document.archivo} target="blank">File</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </Table>
+                </div>
+                }
+                <div>
+                <Button variant="primary" className="add" onClick={() => setModalShow(true)}>
+                    AGREGAR TAREA
+                </Button>
+                    </div> 
+                <MydModalWithGrid show={modalShow} onHide={() => setModalShow(false)} />
+            </div>
+            </div>
+            <div className='taskDetail-container'>
                 <Table>
-                    <tbody>
+                <thead>
                     <tr>
-                        <td>Monto de Contingencia</td>
-                        <td><div contentEditable style={{width: 200}}>{document['monto']}</div></td>
+                        
                     </tr>
-                    <tr>
-                        <td>Archivos Adjuntos</td>
-                        <td>
-                            <tr><a href={document.archivo} target="blank">File</a></tr>
-                            <tr><a href={document.archivo}>File</a></tr>
-                            </td>
-                    </tr>
-                    </tbody>
+                </thead>
                 </Table>
             </div>
-            <Button variant="primary" onClick={() => setModalShow(true)}>
-                Agregar tarea
-        </Button>
-            <MydModalWithGrid show={modalShow} onHide={() => setModalShow(false)} />
-
         </section>
     )
 }

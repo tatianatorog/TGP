@@ -11,12 +11,12 @@ import add from "../img/add.png";
 import FrontBar from "../components/frontbar";
 
 function DataTable() {
-  const { allDoc, setviewDoc } = useContext(AuthContext);
+  const { allDoc } = useContext(AuthContext);
   const [term, setTerm] = useState("");
   const history = useHistory();
 
   const handleFileRedirect = (file) => {
-    setviewDoc(file);
+    localStorage.setItem('file',file)
     history.push("/documentDetail");
   };
   const addDataTable = () => {
@@ -52,10 +52,10 @@ function DataTable() {
                 />
               }
             ></FrontBar>
-            <div>
+            <div className='button-container'>
               <button className="btn add" onClick={addDataTable}>
                 <img src={add} alt="" />
-                Agregar documento
+                <div>AGREGAR DOCUMENTO</div>
               </button>
             </div>
             <table className="table table-bordered">
