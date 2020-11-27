@@ -29,7 +29,7 @@ height: 45px;
 
 
 .front{
-  width: 100%;
+  width: 82vw;
   height:90px;
   object-fit: contain;
   border-bottom: 2px solid #8080807a;
@@ -39,7 +39,7 @@ height: 45px;
 
 
 .page-content{
-  width:100%;
+  width:82vw;
 }
 
 .front-user{

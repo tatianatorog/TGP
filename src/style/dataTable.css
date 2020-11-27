@@ -9,7 +9,7 @@
     color:var(--primary-bg-color);
 }
 .table-bordered{
-    width: 1140px;
+   
     margin: 130px 0px 0px 50px;
 }
 .wrapper{
@@ -36,4 +36,11 @@ td{
 
 .btn-primary{
   width:150px;
+}
+
+container-tabla{
+    width: 82vw;
+    min-width: 800px;
+    overflow-x: scroll;
+ 
 }

@@ -84,6 +84,7 @@ function DataTable() {
                 <div>AGREGAR DOCUMENTO</div>
               </button>
             </div>
+            <div className="container-tabla">
             <table className="table table-bordered">
               <thead className="header">
                 <tr>
@@ -123,6 +124,7 @@ function DataTable() {
                 })}
               </tbody>
             </table>
+            </div>   
           </div>
         </div>
       </div>

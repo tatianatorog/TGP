@@ -1,6 +1,9 @@
 .menu{
-    width:24px;
+    width:18vw;
     background-color: var(--input);
+    box-sizing: border-box;
+    min-width:224px
+   
 }
 .menu-logo{
     margin-left: auto;
