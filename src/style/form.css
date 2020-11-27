@@ -10,6 +10,7 @@
 .page{
     display: flex;
     object-fit: contain;
+    background-color: white;
 }
 
 .btn-form{

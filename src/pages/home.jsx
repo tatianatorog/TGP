@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useState } from "react";
-import { Button } from "react-bootstrap";
+import { Button,Jumbotron } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { AuthContext } from "../context/AuthContext";
@@ -10,7 +10,8 @@ import MenuNav from "../components/menu";
 import add from "../img/add.png";
 import FrontBar from "../components/frontbar";
 import MydModalWrapperDoc from "../components/modalDoc";
-import ToastTask from '../components/toastTask'
+import ToastTask from '../components/toastTask';
+import lupa from '../img/lupa.png';
 
 function DataTable() {
   const { allDoc, setviewDoc, taskNot } = useContext(AuthContext);
@@ -51,7 +52,7 @@ function DataTable() {
   }
 
   return (
-    <div className="page">
+    <Jumbotron className="page">
       <div className='notification-container'>
         {notificacion && notificacion.map((item,i) => {
           if (item.days === 10) {
@@ -73,18 +74,21 @@ function DataTable() {
                   className="form-control form-searcher"
                   name="term"
                   maxLength="16"
+                  src={lupa}
+                  width="30"
+                  height="30"
                   onChange={(e) => setTerm(e.target.value)}
-                  placeholder="Buscar"
+                  placeholder=" Buscar"
                 />
               }
             ></FrontBar>
-            <div className='button-container'>
+            <div striped bordered hover className='button-container'>
               <button className="btn add" onClick={addDataTable}>
                 <img src={add} alt="" />
                 <div>AGREGAR DOCUMENTO</div>
               </button>
             </div>
-            <table className="table table-bordered">
+            <table  className="table table-striped table-bordered">
               <thead className="header">
                 <tr>
                   <th>Entidad</th>
@@ -101,10 +105,10 @@ function DataTable() {
                   return (
                     <tr key={i.id}>
                       <td className="box-container tabla-item">{i.entidad}</td>
-                      <td className="tabla-item">{i.expediente}</td>
-                      <td className="tabla-item">{i.motivo}</td>
-                      <td className="tabla-item">{i.tema}</td>
-                      <td className="tabla-item">{i.fecha_entrada}</td>
+                      <td className="box-container tabla-item">{i.expediente}</td>
+                      <td className="box-container tabla-item">{i.motivo}</td>
+                      <td className="box-container tabla-item">{i.tema}</td>
+                      <td className="box-container tabla-item">{i.fecha_entrada}</td>
                       <td>
                         <Button variant="link"
                           onClick={() => seeDetailInModal(i.id)}>Detalles</Button>
@@ -126,7 +130,7 @@ function DataTable() {
           </div>
         </div>
       </div>
-    </div>
+    </Jumbotron>
   );
 }
 export default DataTable;

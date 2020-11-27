@@ -120,7 +120,7 @@ export default function DocumentDetail() {
         <div className="taskDetail-container">
         <MydModalWithGrid   show={modalShow} onHide={() => setModalShow(false)}  idDoc={viewDoc} exp={document.expediente} />
                 <ModalAddCont   show={modalShow1} onHide={() => setModalShow1(false)}  idDoc={viewDoc} exp={document.expediente} />
-          <Table className="table table-bordered">
+          <Table className="table table-striped table-bordered">
             <thead className="header">
               <tr>
                 <th>Estado</th>
@@ -135,10 +135,10 @@ export default function DocumentDetail() {
               {document &&
                 tareas.map((dataTask) => (
                   <tr key={dataTask.idTask}>
-                    <td className="input-form">{dataTask.completada}</td>
-                    <td className="input-form">{dataTask.descripcion}</td>
-                    <td className="input-form">{dataTask.areaEncargada}</td>
-                    <td className="input-form">{dataTask.fechaPlazo}</td>
+                    <td className="box-container tabla-item">{dataTask.completada}</td>
+                    <td className="box-container tabla-item">{dataTask.descripcion}</td>
+                    <td className="box-container tabla-item">{dataTask.areaEncargada}</td>
+                    <td className="box-container tabla-item">{dataTask.fechaPlazo}</td>
                     <td>
                    
                  
