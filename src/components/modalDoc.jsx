@@ -1,6 +1,6 @@
 
 import React, {useContext} from 'react';
-import { Table,Container, Modal } from "react-bootstrap";
+import { Table,Container, Modal,Row ,Col, Image } from "react-bootstrap";
 //import { getUsers} from '../controllers/user'
 import "../style/modalDoc.css";
 import { AuthContext } from "../context/AuthContext";
@@ -63,9 +63,17 @@ export function MydModalWrapperDoc(props) {
                     </tr>
                      
                     </tr>
+
+                    <Container>
+             <Row>
+             <Col xs={6} md={4}>
+              <Image src={document.archivo} rounded />
+             </Col>
+             </Row>
+              </Container>
                 </div>
                 }
-
+            
                 </tbody>
             </Table>
   

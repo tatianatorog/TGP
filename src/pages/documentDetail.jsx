@@ -13,6 +13,7 @@ import ModalEditTask from "../components/modalEditTask";
 
 
 
+
 export default function DocumentDetail() {
   const { allDoc } = useContext(AuthContext);
   const [modalShow, setModalShow] = useState(false);
@@ -25,6 +26,8 @@ export default function DocumentDetail() {
   const [tareas, setTareas] = useState([]);
   const idC = document.id;
 
+ 
+  
   useEffect(() => {
    const colecion = db.collection("documents")
    colecion.doc(idC)
@@ -55,7 +58,6 @@ export default function DocumentDetail() {
   return (
     <section className="documentDetail-container">
       <MenuNav />
-
       <div className="document-detail-main">
         <FrontBar />
         <div className="documentDetail-container">
@@ -132,7 +134,7 @@ export default function DocumentDetail() {
                    
                   <MydModalWithGrid   show={modalShow} onHide={() => setModalShow(false)}  idDoc={document.id} exp={document.expediente} />
                 <ModalAddCont   show={modalShow1} onHide={() => setModalShow1(false)}  idDoc={document.id} exp={document.expediente} />
-                      <Button  key={dataTask.id} variant="link" onClick={() => setEdit(true)}>
+                      <Button  key={dataTask.id} variant="link" onClick={handlem}>
                         Editar
                       </Button>
                       <ModalEditTask
@@ -142,7 +144,6 @@ export default function DocumentDetail() {
                         idDocu={document.id}
                       />
                     </td>
-            
                   </tr>
                 ))}
             </tbody>

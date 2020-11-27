@@ -1,4 +1,4 @@
-import { Button, Col, Form, Container, Modal } from "react-bootstrap";
+/*import { Button, Col, Form, Container, Modal } from "react-bootstrap";
 import { firebase } from "../firebase/firebase.config";
 import React, { useState } from "react";
 import "../style/modalEdit.css";
@@ -168,4 +168,4 @@ function ModalEditTask({
   );
 }
 
-export default ModalEditTask;
+export default ModalEditTask;*/
