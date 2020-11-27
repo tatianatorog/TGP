@@ -88,6 +88,9 @@ export default function DocumentDetail() {
             >
               AGREGAR TAREA
             </Button>
+            <Button variant="primary" className="add" onClick={() => setModalShow1(true)}>
+                    MONTO DE CONTINGENCIA
+            </Button>
           </div>
           <MydModalWithGrid
             show={modalShow}
@@ -116,9 +119,7 @@ export default function DocumentDetail() {
                     <td className="input-form">{dataTask.areaEncargada}</td>
                     <td className="input-form">{dataTask.fechaPlazo}</td>
                     <td>
-                    <Button variant="primary" className="add" onClick={() => setModalShow1(true)}>
-                    MONTO DE CONTINGENCIA
-                   </Button>
+                   
                 <MydModalWithGrid   show={modalShow} onHide={() => setModalShow(false)}  idDoc={document.id} exp={document.expediente} />
                 <ModalAddCont   show={modalShow1} onHide={() => setModalShow1(false)}  idDoc={document.id} exp={document.expediente} />
                       <Button  key={dataTask.id} variant="link" onClick={() => setEdit(true)}>
