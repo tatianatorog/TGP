@@ -38,7 +38,7 @@ export default function Login() {
             </div>
             <div className='login-form'>
             <img src={logo} alt="logo" className="menu-logo" width='150' height='auto'/>
-                <p>Plataforma de acceso a documentos</p>
+                <p className='principal-name'>Reducer</p>
                 <Form onSubmit={handleSubmit}>
                     {error && <Alert variant="danger">{error}</Alert>}
                     <Form.Group >

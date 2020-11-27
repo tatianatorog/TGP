@@ -6,7 +6,7 @@ import { Alert } from 'react-bootstrap';
 import {  HomeFilled , HddFilled, WalletFilled } from '@ant-design/icons';
 import 'antd/dist/antd.css';
 import '../style/menu.css';
-import logo from '../img/logo.svg';
+import logo from '../img/logotitle.svg';
 
 const { SubMenu } = Menu;
 
@@ -40,7 +40,7 @@ const rootSubmenuKeys = ['sub1', 'sub2', 'sub4'];
   
     <Menu mode="inline" className="menu"openKeys={openKeys} onOpenChange={onOpenChange} style={{ width: 224 }}>
         <img src={logo} alt="logo" className="menu-logo" width='100' height='auto'/>
-  <p className="logo-title1">Plataforma de acceso</p><p className="logo-title">a documentos </p>
+  <p className="logo-title1">Reducer</p>
       <Menu.Item key="mail" icon={<HomeFilled />} className="list">
         {/* <Menu.Item className="item" key="1">Option 1</Menu.Item>
         <Menu.Item key="2">Option 2</Menu.Item>

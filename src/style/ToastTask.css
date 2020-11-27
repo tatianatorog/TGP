@@ -1,0 +1,28 @@
+.relax {
+    
+    background-color: #a4d65e !important;
+}
+
+.relax > .toast-header {
+    color: #FFFFFF;
+    background-color: #759943 !important;
+}
+
+.warn {
+    
+    background-color: #ffd600 !important;
+}
+
+.warn > .toast-header {
+    color: #FFFFFF;
+    background-color: #ed8500 !important;
+}
+
+.fail { 
+    background-color: #f74d3b !important;
+}
+
+.fail > .toast-header {
+    color: #FFFFFF;
+    background-color: #C0392B !important;
+}
