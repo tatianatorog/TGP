@@ -24,28 +24,26 @@
 .login > div {
     width: 50vw;
     height: 100vh;
-    border-right: 1px solid #B0B0B0;
-    box-shadow: 0px 0px 0px 2px  #B0B0B0;
 }
 
-@media screen and (max-width: 1279px) {
-    .image-login {
-        background-size: cover;
-    }
-  }
 
 .login-form{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
 }
 
+
+.login-form > .form-group {
+    width: 400px important;
+
+}
 .principal-name {
     font-family: 'Corbel Bold', sans-serif;
-    font-size: 64px;
-    color: #FF8C1F;
+    font-size: 40px;
+    color: #FCC128;
+    margin: 0 auto;
 }
 
 .inputLogin {
@@ -55,14 +53,31 @@
 }
 
 .login-links {
-    width: 500px;
+    width: 400px;
     font-size: 14px;
     display: flex;
     justify-content: space-around;
     margin: auto;
 }
 
-.login-links > button {
-    box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.25);
+.initial-button-class {
+    display: block !important;
+    align-self: center !important;
+    font-weight: bold !important;
+    height: 50px !important;
+    background: #009CB8 !important;
+    border-color: #009CB8 !important;
+    margin: auto;
+    box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.25) !important;
 }
 
+
+@media screen and (max-width: 1279px) {
+    .image-login {
+        background-size: cover;
+        background-position-x: center
+    }
+    .login-links {
+        max-width: 400px;
+    }
+  }
