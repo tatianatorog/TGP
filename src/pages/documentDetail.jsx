@@ -29,15 +29,11 @@ export default function DocumentDetail() {
         })
         setTareas(arrayData);
       })
-  }, [])
-
-  
-console.log(tareas)
+  }, [idC])
 
     return (
         <section className='documentDetail-container'>
             <MenuNav />
-    
             <div className='document-detail-main'>
                 <FrontBar />
                 <div className='documentDetail-container'>
@@ -82,7 +78,7 @@ console.log(tareas)
                 </thead>
                 <tbody className="table-body"> 
                     {document && tareas.map(dataTask => (
-                        <tr>
+                        <tr key={dataTask.id}>
                         <td className="input-form" >{dataTask.completada}</td>
                         <td className="input-form">{dataTask.descripcion}</td>
                         <td className="input-form">{dataTask.areaEncargada}</td>
