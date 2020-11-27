@@ -23,11 +23,12 @@ export default function DocumentDetail() {
 
   const document = allDoc.find((doc) => doc.id === viewDoc);
   const [tareas, setTareas] = useState([]);
-  const idC = document.id;
+ 
 
   useEffect(() => {
+   
    const colecion = db.collection("documents")
-   colecion.doc(idC)
+   colecion.doc(viewDoc)
       .collection("tareas")
       .onSnapshot((querySnapshot) => {
         const arrayData = [];
@@ -37,13 +38,14 @@ export default function DocumentDetail() {
         });
         setTareas(arrayData);
       });
-    return colecion  
+    return colecion 
+ 
   }, []);
 
   
 
   const handlem = async (e)   => {
-      const doc = await getEditTask(idC, e.currentTarget.id);
+      const doc = await getEditTask(viewDoc, e.currentTarget.id);
       const post = doc.data();
       localStorage.setItem('docID', JSON.stringify(post));
       localStorage.setItem('id', doc.id);
@@ -60,8 +62,9 @@ export default function DocumentDetail() {
 
       <div className="document-detail-main">
         <FrontBar />
+        {document && (
         <div className="documentDetail-container">
-          {document && (
+          
             <div className="description-document">
               <h1 className="input-form">{document.tema}</h1>
               <ListDocument data={document} />
@@ -89,7 +92,8 @@ export default function DocumentDetail() {
                 </tbody>
               </Table>
             </div>
-          )}
+          
+        
           <div>
             <Button
               variant="primary"
@@ -105,13 +109,15 @@ export default function DocumentDetail() {
           <MydModalWithGrid
             show={modalShow}
             onHide={() => setModalShow(false)}
-            idDoc={document.id}
+            idDoc={viewDoc}
             tema={document.tema}
           />
         </div>
+      )}
+        {document && (
         <div className="taskDetail-container">
-        <MydModalWithGrid   show={modalShow} onHide={() => setModalShow(false)}  idDoc={document.id} exp={document.expediente} />
-                <ModalAddCont   show={modalShow1} onHide={() => setModalShow1(false)}  idDoc={document.id} exp={document.expediente} />
+        <MydModalWithGrid   show={modalShow} onHide={() => setModalShow(false)}  idDoc={viewDoc} exp={document.expediente} />
+                <ModalAddCont   show={modalShow1} onHide={() => setModalShow1(false)}  idDoc={viewDoc} exp={document.expediente} />
           <Table className="table table-bordered">
             <thead className="header">
               <tr>
@@ -123,6 +129,7 @@ export default function DocumentDetail() {
               </tr>
             </thead>
             <tbody className="table-body">
+            
               {document &&
                 tareas.map((dataTask) => (
                   <tr key={dataTask.idTask}>
@@ -140,7 +147,7 @@ export default function DocumentDetail() {
                       key={dataTask.id}
                         shows={showEdit}
                         onHides={() => setEdit(false)}
-                        idDocu={document.id}
+                        idDocu={viewDoc}
                       />
                     </td>
             
@@ -148,8 +155,10 @@ export default function DocumentDetail() {
                 ))}
             </tbody>
           </Table>
+
         </div>
+        )}
       </div>
     </section>
   );
-}
+                }
