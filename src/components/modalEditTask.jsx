@@ -172,7 +172,7 @@ function ModalEditTask({
       </Modal.Body>
        
       <Modal.Footer>
-        <Button  className="btn-modal-edit"  stonClick={handleClick}>
+        <Button  className="btn-modal-edit"  onClick={handleClick}>
           Guardar
         </Button>
       </Modal.Footer>
