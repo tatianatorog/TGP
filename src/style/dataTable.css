@@ -42,5 +42,11 @@ container-tabla{
     width: 81vw;
     min-width: 800px;
     overflow-x: scroll;
- 
+    height:40vw;
+    min-height: 500px;
+    overflow-y: scroll;
+}
+
+.page-2{
+    height:100vh;
 }

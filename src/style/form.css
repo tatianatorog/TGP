@@ -10,7 +10,11 @@
 .page{
     display: flex;
     object-fit: contain;
-}
+    
+      height: 100%;
+      width:82vw
+  }
+
 
 .btn-form{
 float: right;

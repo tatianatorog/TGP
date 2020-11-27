@@ -60,6 +60,7 @@ export default function DocumentDetail() {
   
    
   return (
+    <div className="page-2" >
     <section className="documentDetail-container">
       <MenuNav />
 
@@ -110,13 +111,13 @@ export default function DocumentDetail() {
             <Button variant="primary" className="add fix" onClick={() => setModalShow1(true)}>
                     MONTO DE CONTINGENCIA
             </Button>
-            <Button
+            {/* <Button
               variant="primary"
               className="add fix"
               onClick={() => setModalFile(true)}
             >
               AGREGAR ARCHIVOS
-            </Button>
+            </Button> */}
           </div>
           {/* <MydModalWithGrid
             show={modalShow}
@@ -176,5 +177,6 @@ export default function DocumentDetail() {
         )}
       </div>
     </section>
+    </div>
   );
                 }

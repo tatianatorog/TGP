@@ -91,7 +91,7 @@ export default function SignUp() {
                             </Form.Group>
                         </Col>
                     </Row>
-                    <Button disabled={buttonlog} className='register-links'type="submit" >REGISTRARSE</Button>
+                    <Button disabled={buttonlog} className='register-links initial-button-class' type="submit" >REGISTRARSE</Button>
                     <br />
                     <Link to='/'> Iniciar Sesión </Link>
                 </Form>

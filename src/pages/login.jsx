@@ -57,7 +57,7 @@ export default function Login() {
                     <Link to='/signup'> Registrarse </Link>
                     </div>
                     </Form.Group>
-                    <Button disabled={buttonlog}  type="submit">INGRESAR</Button>
+                    <Button disabled={buttonlog}  className='initial-button-class' type="submit">INGRESAR</Button>
                 </Form> 
             </div>
         </section>

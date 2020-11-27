@@ -45,8 +45,8 @@ export default function Recover() {
                         <Form.Control type="email" className='inputLogin' required ref={emailRef} placeholder="mdiaz@tgp.com.pe" />
                         </Form.Label>
                     </Form.Group>
-                    <Button disabled={buttonlog} type="submit">ENVIAR</Button>
-                    <div className="recover-links" style={{ margin: 30 }}>
+                    <Button disabled={buttonlog} type="submit" className='initial-button-class' style={{marginBottom: 20}}>ENVIAR</Button>
+                    <div className="recover-links" style={{ margin: '30 auto', textAlign:'center' }}>
                         <Link to='/'> Iniciar Sesión </Link>
                     </div>
                 </Form>
