@@ -71,6 +71,7 @@ export default function DocumentDetail() {
             <div className="description-document">
               <h1 className="input-form">{document.tema}</h1>
               <ListDocument data={document} />
+             
               <Table>
                 <tbody>
                   <tr>
@@ -94,6 +95,7 @@ export default function DocumentDetail() {
                   </tr>
                 </tbody>
               </Table>
+              
             </div>
           
         
@@ -127,7 +129,9 @@ export default function DocumentDetail() {
         {document && (
         <div className="taskDetail-container">
         <MydModalWithGrid   show={modalShow} onHide={() => setModalShow(false)}  idDoc={viewDoc} exp={document.expediente} />
-                <ModalAddCont   show={modalShow1} onHide={() => setModalShow1(false)}  idDoc={viewDoc} exp={document.expediente} />
+          
+      <ModalAddCont   show={modalShow1} onHide={() => setModalShow1(false)}  idDoc={viewDoc} exp={document.expediente} />
+      <div className="container-tabla">
           <Table className="table table-bordered">
             <thead className="header">
               <tr>
@@ -167,7 +171,7 @@ export default function DocumentDetail() {
                 ))}
             </tbody>
           </Table>
-
+          </div>
         </div>
         )}
       </div>
