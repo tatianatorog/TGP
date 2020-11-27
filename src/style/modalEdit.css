@@ -1,4 +1,12 @@
 .modal-flex{
     display: flex;
+    margin-left:15px;
+}
 
+.modal-item{
+    margin-left: 15px;
+}
+
+.modal-text{
+    margin-left: 80px;
 }

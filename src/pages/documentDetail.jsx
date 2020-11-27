@@ -7,7 +7,7 @@ import MenuNav from "../components/menu";
 import "../style/documentDetail.css";
 import FrontBar from "../components/frontbar";
 import ModalAddCont from '../components/modalCont';
-import { db } from "../firebase/firebase.config";
+import { db, getEditTask } from "../firebase/firebase.config";
 import ModalEditTask from "../components/modalEditTask";
 
 
@@ -40,6 +40,16 @@ export default function DocumentDetail() {
     return colecion  
   }, [idC]);
 
+  const handlem = async (e)   => {
+      const doc = await getEditTask(idC, e.currentTarget.id);
+      const post = doc.data();
+      localStorage.setItem('docID', JSON.stringify(post));
+      localStorage.setItem('id', doc.id);
+      console.log(post)
+      setEdit(true);
+    };
+
+    console.log(idC)
   
    
   return (
@@ -98,6 +108,8 @@ export default function DocumentDetail() {
           />
         </div>
         <div className="taskDetail-container">
+        <MydModalWithGrid   show={modalShow} onHide={() => setModalShow(false)}  idDoc={document.id} exp={document.expediente} />
+                <ModalAddCont   show={modalShow1} onHide={() => setModalShow1(false)}  idDoc={document.id} exp={document.expediente} />
           <Table className="table table-bordered">
             <thead className="header">
               <tr>
@@ -111,7 +123,7 @@ export default function DocumentDetail() {
             <tbody className="table-body">
               {document &&
                 tareas.map((dataTask) => (
-                  <tr key={dataTask.id}>
+                  <tr key={dataTask.idTask}>
                     <td className="input-form">{dataTask.completada}</td>
                     <td className="input-form">{dataTask.descripcion}</td>
                     <td className="input-form">{dataTask.areaEncargada}</td>
@@ -127,11 +139,6 @@ export default function DocumentDetail() {
                       key={dataTask.id}
                         shows={showEdit}
                         onHides={() => setEdit(false)}
-                        idTask={dataTask.idTask}
-                        titulo={dataTask.descripcion}
-                        area={dataTask.areaEncargada}
-                        fechaLimite={dataTask.fechaPlazo}
-                      //  mod={dataTask.modificacion} 
                         idDocu={document.id}
                       />
                     </td>
