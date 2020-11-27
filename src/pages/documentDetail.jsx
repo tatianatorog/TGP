@@ -18,7 +18,7 @@ export default function DocumentDetail() {
   const [modalShow, setModalShow] = useState(false);
   const [modalShow1, setModalShow1] = useState(false);
   const [showEdit, setEdit] = useState(false);
-
+ 
   const viewDoc = localStorage.getItem("file");
 
   const document = allDoc.find((doc) => doc.id === viewDoc);
@@ -40,7 +40,7 @@ export default function DocumentDetail() {
     return colecion  
   }, []);
 
-  console.log(tareas);
+  
 
   const handlem = async (e)   => {
       const doc = await getEditTask(idC, e.currentTarget.id);
@@ -51,7 +51,7 @@ export default function DocumentDetail() {
       setEdit(true);
     };
 
-    console.log(idC)
+    
   
    
   return (
@@ -69,7 +69,7 @@ export default function DocumentDetail() {
                 <tbody>
                   <tr>
                     <td>Monto de Contingencia</td>
-                    <td className="input-form">{document["monto"]}</td>
+          <td className="input-form">s/{document.cantidad} soles - {document.comentario}</td>
                   </tr>
                   <tr>
                     <td>Archivos Adjuntos</td>
@@ -132,8 +132,8 @@ export default function DocumentDetail() {
                     <td className="input-form">{dataTask.fechaPlazo}</td>
                     <td>
                    
-                
-                      <Button  id={dataTask.idTask} variant="link" onClick={handlem}>
+                 
+                    <Button  id={dataTask.idTask} variant="link" onClick={handlem}>
                         Editar
                       </Button>
                       <ModalEditTask

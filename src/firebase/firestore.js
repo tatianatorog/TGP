@@ -13,13 +13,20 @@ function addDocument(data) {
     }
   };
   
-  
+  const updateQuantity = async (idDoc,fields) => {
+    try {
+      await db.collection('documents').doc(idDoc).update(fields);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-  
 
   export  {
     addDocument,
-    updateTask
+    updateTask,
+    updateQuantity 
+   
     
   }
 
