@@ -97,7 +97,7 @@ function ModalEditTask({
               </Form.Group>
 
               <Form.Group as={Col} controlId="estado">
-                <Form.Label>Área encargada:</Form.Label>
+                <Form.Label>Estado de la tarea:</Form.Label>
                 <Form.Control
                   required
                   className="input-form"
