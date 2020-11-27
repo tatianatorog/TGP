@@ -19,7 +19,7 @@
 }
 
 .fail { 
-    background-color: #f74d3b !important;
+    background-color:#cc5e52 !important;
 }
 
 .fail > .toast-header {

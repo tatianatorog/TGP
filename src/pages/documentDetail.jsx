@@ -99,12 +99,12 @@ export default function DocumentDetail() {
           <div>
             <Button
               variant="primary"
-              className="add"
+              className="add fix"
               onClick={() => setModalShow(true)}
             >
               AGREGAR TAREA
             </Button>
-            <Button variant="primary" className="add" onClick={() => setModalShow1(true)}>
+            <Button variant="primary" className="add fix" onClick={() => setModalShow1(true)}>
                     MONTO DE CONTINGENCIA
             </Button>
           </div>

@@ -29,3 +29,11 @@
 .table-body{
     font-size:14px;
 }
+
+td{
+    padding: .55rem;
+}
+
+.btn-primary{
+  width:150px;
+}
