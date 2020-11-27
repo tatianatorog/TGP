@@ -38,7 +38,7 @@ export default function DocumentDetail() {
         setTareas(arrayData);
       });
     return colecion  
-  }, []);
+  }, [idC]);
 
   
    

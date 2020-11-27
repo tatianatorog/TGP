@@ -2,6 +2,8 @@ import React, { useState, useRef } from 'react';
 import { recoverPass } from '../firebase/auth';
 import { Link } from 'react-router-dom';
 import { Alert, Button, Form } from 'react-bootstrap';
+import logo from '../img/logotitle.svg';
+
 
 export default function Recover() {
     const emailRef = useRef();
@@ -32,7 +34,8 @@ export default function Recover() {
                 <div></div>
             </div>
             <div className='login-form'>
-                <p>Recuperar contraseña</p>
+            <img src={logo} alt="logo" className="menu-logo" width='150' height='auto'/>
+            <p className='principal-name'>Reducer</p>
                 <Form onSubmit={handleSubmit}>
                     {error && <Alert variant="danger" >{error}</Alert>}
                     {message && <Alert variant="success">{message}</Alert>}
