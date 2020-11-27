@@ -18,6 +18,7 @@ export default function DocumentDetail() {
   const [modalShow, setModalShow] = useState(false);
   const [modalShow1, setModalShow1] = useState(false);
   const [showEdit, setEdit] = useState(false);
+  const [somo, setM] = useState("");
  
   const viewDoc = localStorage.getItem("file");
 
@@ -49,8 +50,9 @@ export default function DocumentDetail() {
       const post = doc.data();
       localStorage.setItem('docID', JSON.stringify(post));
       localStorage.setItem('id', doc.id);
-      console.log(post)
-      setEdit(true);
+      const  idTask = localStorage.getItem("id");
+      setM(idTask)
+      setEdit(true)
     };
 
     
@@ -140,15 +142,17 @@ export default function DocumentDetail() {
                     <td>
                    
                  
-                    <Button  id={dataTask.idTask} variant="link" onClick={handlem}>
+                    <Button  id={dataTask.idTask}  name={dataTask.completada} variant="link" onClick={handlem}>
                         Editar
                       </Button>
+                      {somo !=="" ? (
                       <ModalEditTask
                       key={dataTask.id}
                         shows={showEdit}
                         onHides={() => setEdit(false)}
                         idDocu={viewDoc}
                       />
+                      ): null}
                     </td>
             
                   </tr>
