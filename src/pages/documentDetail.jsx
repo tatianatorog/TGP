@@ -19,6 +19,7 @@ export default function DocumentDetail() {
   const [modalShow1, setModalShow1] = useState(false);
   const [showEdit, setEdit] = useState(false);
   const [somo, setM] = useState("");
+  const [modalFile, setModalFile] = useState("");
  
   const viewDoc = localStorage.getItem("file");
 
@@ -107,13 +108,20 @@ export default function DocumentDetail() {
             <Button variant="primary" className="add fix" onClick={() => setModalShow1(true)}>
                     MONTO DE CONTINGENCIA
             </Button>
+            <Button
+              variant="primary"
+              className="add fix"
+              onClick={() => setModalFile(true)}
+            >
+              AGREGAR ARCHIVOS
+            </Button>
           </div>
-          <MydModalWithGrid
+          {/* <MydModalWithGrid
             show={modalShow}
             onHide={() => setModalShow(false)}
             idDoc={viewDoc}
             tema={document.tema}
-          />
+          /> */}
         </div>
       )}
         {document && (
