@@ -25,7 +25,6 @@ function DataTable() {
     return diffDays <= 10 ? { 'days': diffDays, 'areaEncargada': task.areaEncargada, 'tema': task.tema } : {}
   }) : [];  
 
-  console.log(notificacion && notificacion, taskNot && taskNot.length)
   const handleFileRedirect = (file) => {
     localStorage.setItem('file', file)
     history.push("/documentDetail");

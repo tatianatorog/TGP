@@ -2,7 +2,8 @@ import React, { useRef, useState } from 'react';
 import { signup } from '../firebase/auth';
 import { Link, useHistory } from 'react-router-dom';
 import { Alert, Button, Form, Row, Col } from 'react-bootstrap';
-import '../style/signUp.css'
+import '../style/signUp.css';
+import logo from '../img/logotitle.svg';
 
 
 export default function SignUp() {
@@ -39,11 +40,12 @@ export default function SignUp() {
     return (
         <section className='signup'>
             <div className='image-login'>
-                <div></div>
             </div>
             <div className='register-form'>
+            <img src={logo} alt="logo" className="menu-logo" width='150' height='auto'/>
+
                 <Form onSubmit={handleSubmit} className='register-form'>
-                    <p>Crear Cuenta</p>
+                <p className='principal-name'>Reducer</p>
                     {error && <Alert variant="danger">{error}</Alert>}
                     <Row>
                         <Col>
