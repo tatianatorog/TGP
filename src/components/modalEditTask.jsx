@@ -172,8 +172,8 @@ function ModalEditTask({
       </Modal.Body>
        
       <Modal.Footer>
-        <Button variant="primary" className="btn-modal-edit" onClick={handleClick}>
-          Save Changes
+        <Button  className="btn-modal-edit"  stonClick={handleClick}>
+          Guardar
         </Button>
       </Modal.Footer>
     </Modal>

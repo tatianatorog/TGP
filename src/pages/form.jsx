@@ -330,7 +330,7 @@ export default function FormUpload() {
               //   !expiredDate ||
               //   !reason
               // }
-              onClick={handleSubmit}
+              onClick={handleSend}
             >
               Guardar
             </Button>
