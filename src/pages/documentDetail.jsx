@@ -50,7 +50,7 @@ export default function DocumentDetail() {
       const post = doc.data();
       localStorage.setItem('docID', JSON.stringify(post));
       localStorage.setItem('id', doc.id);
-      const  idTask = localStorage.getItem("id");
+      const  idTask = localStorage.getItem('id');
       setM(idTask)
       setEdit(true)
     };
@@ -99,12 +99,12 @@ export default function DocumentDetail() {
           <div>
             <Button
               variant="primary"
-              className="add"
+              className="add fix"
               onClick={() => setModalShow(true)}
             >
               AGREGAR TAREA
             </Button>
-            <Button variant="primary" className="add" onClick={() => setModalShow1(true)}>
+            <Button variant="primary" className="add fix" onClick={() => setModalShow1(true)}>
                     MONTO DE CONTINGENCIA
             </Button>
           </div>

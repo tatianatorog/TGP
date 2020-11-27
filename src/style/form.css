@@ -16,8 +16,9 @@
 .btn-form{
 float: right;
 box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.25);
-width:106px;
+width:200px;
 background-color:var(--blue) ;
+height: 45px;
 }
 
 .title-form{
@@ -30,11 +31,13 @@ background-color:var(--blue) ;
 
 .front{
   width: 100%;
-  height:100px;
+  height:90px;
   object-fit: contain;
-  border-bottom: 1px solid gray;
-  
+  border-bottom: 2px solid #8080807a;
+  /* box-shadow: 0px 2px #D0D0D6 */
 }
+
+
 
 .page-content{
   width:100%;
@@ -44,13 +47,14 @@ background-color:var(--blue) ;
   display: flex;
   float: right;
   margin-right:40px;
-  margin-top: 40px;
+  margin-top: 30px;
 }
 .front-user-text{
   margin-top: 20px;
   margin-right:20px;
   font-size: 22px;
   font-weight: bold;
+  color:#575756
 }
 .front-user-logo{
   width: 48px;

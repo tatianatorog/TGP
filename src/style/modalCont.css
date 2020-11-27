@@ -24,5 +24,10 @@ background: linear-gradient(90deg, #0084AD 44.3%, #FFEE19 71.22%, #FCC128 84.68%
 }
 
 
+.modal-backdrop {
+background-color: #00000024;
+}
 
-
+.modal-content {
+    border:none;
+}

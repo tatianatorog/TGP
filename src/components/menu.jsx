@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {  Link, useHistory } from "react-router-dom";
 import { Menu } from 'antd';
 import { signOut } from '../firebase/auth';
-import { Alert ,Container} from 'react-bootstrap';
+import { Alert } from 'react-bootstrap';
 import {  HomeFilled , HddFilled, WalletFilled } from '@ant-design/icons';
 import 'antd/dist/antd.css';
 import '../style/menu.css';
@@ -38,8 +38,8 @@ const rootSubmenuKeys = ['sub1', 'sub2', 'sub4'];
 }
   return (
   
-    <Container mode="inline" className="menu"openKeys={openKeys} onOpenChange={onOpenChange} style={{ width: 224 }}>
-        <img src={logo} alt="logo" className="menu-logo" width='100' height='auto'/>
+    <Menu mode="inline" className="menu"openKeys={openKeys} onOpenChange={onOpenChange} style={{ width: 224 }}>
+        <img src={logo} alt="logo" className="menu-logo" width='120' height='auto'/>
   <p className="logo-title1">Reducer</p>
       <Menu.Item key="mail" icon={<HomeFilled />} className="list">
         {/* <Menu.Item className="item" key="1">Option 1</Menu.Item>
@@ -80,7 +80,7 @@ const rootSubmenuKeys = ['sub1', 'sub2', 'sub4'];
       </SubMenu>
       <Menu.Item key="24" icon={<WalletFilled />} onClick={handleLogOut}>Cerrar Sesión</Menu.Item>
       {error && <Alert variant="danger">{error}</Alert>}
-    </Container>
+    </Menu>
    
   );
 };
