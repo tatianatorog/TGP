@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useState } from "react";
 import { Button,Jumbotron} from "react-bootstrap";
 import { useHistory } from "react-router-dom";
@@ -24,6 +24,13 @@ function DataTable() {
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     return diffDays <= 10 ? { 'days': diffDays, 'areaEncargada': task.areaEncargada, 'tema': task.tema } : {}
   }) : [];  
+  const stateNote = sessionStorage.getItem('state');
+
+  useEffect(() => {
+    const setStateNot = setTimeout(function (){ sessionStorage.setItem('state', true)}, 3000)
+
+    return ( ) => setStateNot;
+  }, [])
 
   const handleFileRedirect = (file) => {
     localStorage.setItem('file', file)
@@ -53,7 +60,7 @@ function DataTable() {
   return (
     <div  className="page">
       <div className='notification-container'>
-        {notificacion && notificacion.map((item,i) => {
+        {(!stateNote && notificacion) && notificacion.map((item,i) => {
           if (item.days === 10) {
             return <ToastTask key={'days'+ item.days + i} time={item.days} area={item.areaEncargada} topic={item.tema} color={'relax'} />
           }
@@ -61,7 +68,8 @@ function DataTable() {
             return <ToastTask key={'days' + item.days + i} time={item.days} area={item.areaEncargada} topic={item.tema} color={'warn'} />
           }
           return (item.days <= 3) ? <ToastTask key={'days' + item.days + i} time={item.days} area={item.areaEncargada} topic={item.tema} color={'fail'} /> : null
-        })}
+        })
+      }
       </div>
       <MenuNav />
       <div className="row row-home">
