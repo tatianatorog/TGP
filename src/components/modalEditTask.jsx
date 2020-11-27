@@ -7,10 +7,6 @@ import { updateTask } from "../firebase/firestore";
 function ModalEditTask({
   shows,
   onHides,
-  idTask,
-  titulo,
-  area,
-  fechaLimite,
   idDocu,
   
 }) {
@@ -31,6 +27,13 @@ function ModalEditTask({
   const handleLink2 = (e) => setLink2(e.currentTarget.value);
   const handleNameLink2 = (e) => setNameLink2(e.currentTarget.value);
 
+  const edit = localStorage.getItem("docID");
+  const listo = JSON.parse(edit)
+  const titulo = listo.descripcion
+  const  area   = listo.areaEncargada
+  const  idTask = localStorage.getItem("id");
+  const fechaLimite =  listo.fechaPlazo;
+
   const handleClick = () => {
     updateTask(idDocu, idTask, {
       fechaPlazo: fechaU,
@@ -41,7 +44,13 @@ function ModalEditTask({
       modificacion: firebase.firestore.Timestamp.now(),
     });
        onHides();
-    console.log("hola");
+       setFechaU("");
+       setObservaciones("");
+       setEstado("");
+       setLink1("");
+       setNameLink1("");
+       setLink2("");
+       setNameLink2("");
   };
 
   return (
@@ -51,25 +60,25 @@ function ModalEditTask({
       </Modal.Header>
       <Modal.Body>
         <div className="modal-flex">
-          <p> <b>Titulo de la Tarea</b> </p>
-          <p> {titulo} </p>
+          <p> <b>Titulo de la Tarea:</b> </p>
+          <p className="modal-item"> {titulo} </p>
         </div>
         <div className="modal-flex">
-          <p> <b> Area encargada</b> </p>
-          <p> {area}</p> 
+          <p> <b> Area encargada:</b> </p>
+          <p className="modal-item"> {area}</p> 
           
         </div>
         <div className="modal-flex">
-          <p> <b>Última modificación</b></p>
-          <p> <b>Fecha plazo</b></p>
-          <p> {fechaLimite}</p>
+          <p> <b>Última modificación:</b></p>
+          <p className="modal-text"> <b>Fecha plazo:</b></p>
+          <p className="modal-item"> {fechaLimite}</p>
         </div>
 
         <Container>
           <Form>
             <Form.Row>
               <Form.Group as={Col} controlId="formdate">
-                <Form.Label>Actualizar fecha limite</Form.Label>
+                <Form.Label>Actualizar fecha limite:</Form.Label>
                 <Form.Control
                   type="date"
                   value={fechaU}
@@ -79,7 +88,7 @@ function ModalEditTask({
               </Form.Group>
 
               <Form.Group as={Col} controlId="estado">
-                <Form.Label>Área encargada</Form.Label>
+                <Form.Label>Área encargada:</Form.Label>
                 <Form.Control
                   required
                   className="input-form"
@@ -137,7 +146,7 @@ function ModalEditTask({
             </Form.Row>
 
             <Form.Group controlId="exampleForm.ControlTextarea2">
-              <Form.Label>Motivo</Form.Label>
+              <Form.Label>Observaciones</Form.Label>
               <Form.Control
                 className="input-form"
                 as="textarea"

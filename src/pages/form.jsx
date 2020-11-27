@@ -67,7 +67,7 @@ export default function FormUpload() {
     }
 
     setValidated(true);
- if( url &&
+ if( 
     entity &&
     record &&
     topic &&
