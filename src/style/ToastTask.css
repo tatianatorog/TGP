@@ -19,10 +19,15 @@
 }
 
 .fail { 
+    color: #FFFFFF;
     background-color:#cc5e52 !important;
+}
+.fail{
+    opacity: .5;
+    overflow: hidden;
 }
 
 .fail > .toast-header {
     color: #FFFFFF;
-    background-color: #C0392B !important;
+    background-color: #c24031 !important;
 }

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useState } from "react";
-import { Button } from "react-bootstrap";
+import { Button,Jumbotron} from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { AuthContext } from "../context/AuthContext";
@@ -51,7 +51,7 @@ function DataTable() {
   }
 
   return (
-    <div className="page">
+    <div  className="page">
       <div className='notification-container'>
         {notificacion && notificacion.map((item,i) => {
           if (item.days === 10) {
@@ -85,7 +85,7 @@ function DataTable() {
               </button>
             </div>
             <div className="container-tabla">
-            <table className="table table-bordered">
+            <table className="table table-bordered table table-striped">
               <thead className="header">
                 <tr>
                   <th>Entidad</th>
@@ -102,10 +102,10 @@ function DataTable() {
                   return (
                     <tr key={i.id}>
                       <td className="box-container tabla-item">{i.entidad}</td>
-                      <td className="tabla-item">{i.expediente}</td>
-                      <td className="tabla-item">{i.motivo}</td>
-                      <td className="tabla-item">{i.tema}</td>
-                      <td className="tabla-item">{i.fecha_entrada}</td>
+                      <td className="box-container tabla-item">{i.expediente}</td>
+                      <td className="box-container tabla-item">{i.motivo}</td>
+                      <td className="box-container tabla-item">{i.tema}</td>
+                      <td className="box-container tabla-item">{i.fecha_entrada}</td>
                       <td>
                         <Button variant="link"
                           onClick={() => seeDetailInModal(i.id)}>Detalles</Button>

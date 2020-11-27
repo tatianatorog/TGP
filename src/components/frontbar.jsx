@@ -25,7 +25,7 @@ const FrontBar = ({ searcher }) => {
       {searcher}
       <div className="front-user">
         <p className="front-user-text">{currentUser && currentUser.displayName}</p>
-        <img className="front-user-logo" src={user} alt="userName" />
+        <img className="front-tgp-logo" src={user} alt="userName" />
       </div>
     </div>
   )
