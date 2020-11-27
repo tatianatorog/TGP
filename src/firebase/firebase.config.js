@@ -26,12 +26,12 @@ const auth = firebase.auth();
 
 
 
-
+const getEditTask =  (idDoc, idTareas) => db.collection('documents').doc(idDoc).collection('tareas').doc(idTareas).get();
 /*messaging.onMessage(function(payload) {
   console.log("Notificación recibida ", payload);
  });*/
 
 export  {
-  storage, db,  auth, firebase
+  storage, db,  auth, firebase, getEditTask
 }
 

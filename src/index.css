@@ -44,3 +44,7 @@ ul{
   padding:0px;
   box-sizing: border-box;
 }
+
+.btn-primary{
+  background:var(--primary);
+}

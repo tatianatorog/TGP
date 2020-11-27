@@ -12,6 +12,8 @@
 .description-document {
     width: 70%;
     padding: 50px;
+    padding-top:20px;
+    padding-bottom: 30px;
 }
 
 .description-document > h1 {
@@ -31,4 +33,9 @@
 
 .taskDetail-container {
     margin-bottom: 50px;
+}
+
+.fix{
+    width: 240px;
+    height: 50px;
 }

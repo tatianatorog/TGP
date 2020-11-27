@@ -39,7 +39,7 @@ const rootSubmenuKeys = ['sub1', 'sub2', 'sub4'];
   return (
   
     <Menu mode="inline" className="menu"openKeys={openKeys} onOpenChange={onOpenChange} style={{ width: 224 }}>
-        <img src={logo} alt="logo" className="menu-logo" width='100' height='auto'/>
+        <img src={logo} alt="logo" className="menu-logo" width='120' height='auto'/>
   <p className="logo-title1">Reducer</p>
       <Menu.Item key="mail" icon={<HomeFilled />} className="list">
         {/* <Menu.Item className="item" key="1">Option 1</Menu.Item>

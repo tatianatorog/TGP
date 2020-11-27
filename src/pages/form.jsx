@@ -67,7 +67,7 @@ export default function FormUpload() {
     }
 
     setValidated(true);
- if( url &&
+ if( 
     entity &&
     record &&
     topic &&
@@ -88,7 +88,7 @@ export default function FormUpload() {
       oefa:  labels,
       link: link,
       archivo: url,
-      tareas:[],
+     
     }
   
 
@@ -156,12 +156,6 @@ export default function FormUpload() {
     <div className="page">
       <MenuNav></MenuNav>
       <div className="page-content">
-        {/* <div className="front">
-        <div className="front-user">
-        <p className="front-user-text"> Nombre usuario</p>
-        <img className="front-user-logo" src={user} alt=""/>
-        </div>
-      </div> */}
         <FrontBar></FrontBar>
         <Container className="container-form">
           <h2 className="title-form">AGREGAR DOCUMENTO</h2>
@@ -217,9 +211,7 @@ export default function FormUpload() {
                 onChange={handleReason}
                 required
               />
-              <Form.Control.Feedback type="invalid">
-              Please choose a username.
-              </Form.Control.Feedback>
+              
             </Form.Group>
             
             <Form.Row>
@@ -338,7 +330,7 @@ export default function FormUpload() {
               //   !expiredDate ||
               //   !reason
               // }
-              onClick={handleSubmit}
+              onClick={handleSend}
             >
               Guardar
             </Button>
