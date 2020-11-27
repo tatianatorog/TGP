@@ -27,12 +27,17 @@ function ModalEditTask({
   const handleLink2 = (e) => setLink2(e.currentTarget.value);
   const handleNameLink2 = (e) => setNameLink2(e.currentTarget.value);
 
+
+
+
   const edit = localStorage.getItem("docID");
   const listo = JSON.parse(edit)
   const titulo = listo.descripcion
   const  area   = listo.areaEncargada
   const  idTask = localStorage.getItem("id");
   const fechaLimite =  listo.fechaPlazo;
+
+  // console.log(titulo)
 
   const handleClick = () => {
     updateTask(idDocu, idTask, {
@@ -54,11 +59,15 @@ function ModalEditTask({
   };
 
   return (
+  
     <Modal show={shows} onHide={onHides} size="lg">
+      
       <Modal.Header closeButton>
         <Modal.Title>Editar Tarea</Modal.Title>
       </Modal.Header>
       <Modal.Body>
+      {edit && 
+      <>
         <div className="modal-flex">
           <p> <b>Titulo de la Tarea:</b> </p>
           <p className="modal-item"> {titulo} </p>
@@ -158,7 +167,10 @@ function ModalEditTask({
             </Form.Group>
           </Form>
         </Container>
+        </>
+        }
       </Modal.Body>
+       
       <Modal.Footer>
         <Button variant="primary" onClick={handleClick}>
           Save Changes

@@ -13,24 +13,23 @@ import ModalEditTask from "../components/modalEditTask";
 
 
 
-
 export default function DocumentDetail() {
   const { allDoc } = useContext(AuthContext);
   const [modalShow, setModalShow] = useState(false);
   const [modalShow1, setModalShow1] = useState(false);
   const [showEdit, setEdit] = useState(false);
+  const [somo, setM] = useState("");
  
   const viewDoc = localStorage.getItem("file");
 
   const document = allDoc.find((doc) => doc.id === viewDoc);
   const [tareas, setTareas] = useState([]);
-  const idC = document.id;
-
  
-  
+
   useEffect(() => {
+   
    const colecion = db.collection("documents")
-   colecion.doc(idC)
+   colecion.doc(viewDoc)
       .collection("tareas")
       .onSnapshot((querySnapshot) => {
         const arrayData = [];
@@ -40,28 +39,34 @@ export default function DocumentDetail() {
         });
         setTareas(arrayData);
       });
-    return colecion  
-  }, [idC]);
+    return colecion 
+ 
+  }, []);
+
+  
 
   const handlem = async (e)   => {
-      const doc = await getEditTask(idC, e.currentTarget.id);
+      const doc = await getEditTask(viewDoc, e.currentTarget.id);
       const post = doc.data();
       localStorage.setItem('docID', JSON.stringify(post));
       localStorage.setItem('id', doc.id);
-      console.log(post)
-      setEdit(true);
+      const  idTask = localStorage.getItem("id");
+      setM(idTask)
+      setEdit(true)
     };
 
-    console.log(idC)
+    
   
    
   return (
     <section className="documentDetail-container">
       <MenuNav />
+
       <div className="document-detail-main">
         <FrontBar />
+        {document && (
         <div className="documentDetail-container">
-          {document && (
+          
             <div className="description-document">
               <h1 className="input-form">{document.tema}</h1>
               <ListDocument data={document} />
@@ -89,7 +94,8 @@ export default function DocumentDetail() {
                 </tbody>
               </Table>
             </div>
-          )}
+          
+        
           <div>
             <Button
               variant="primary"
@@ -105,13 +111,15 @@ export default function DocumentDetail() {
           <MydModalWithGrid
             show={modalShow}
             onHide={() => setModalShow(false)}
-            idDoc={document.id}
+            idDoc={viewDoc}
             tema={document.tema}
           />
         </div>
+      )}
+        {document && (
         <div className="taskDetail-container">
-        <MydModalWithGrid   show={modalShow} onHide={() => setModalShow(false)}  idDoc={document.id} exp={document.expediente} />
-                <ModalAddCont   show={modalShow1} onHide={() => setModalShow1(false)}  idDoc={document.id} exp={document.expediente} />
+        <MydModalWithGrid   show={modalShow} onHide={() => setModalShow(false)}  idDoc={viewDoc} exp={document.expediente} />
+                <ModalAddCont   show={modalShow1} onHide={() => setModalShow1(false)}  idDoc={viewDoc} exp={document.expediente} />
           <Table className="table table-bordered">
             <thead className="header">
               <tr>
@@ -123,6 +131,7 @@ export default function DocumentDetail() {
               </tr>
             </thead>
             <tbody className="table-body">
+            
               {document &&
                 tareas.map((dataTask) => (
                   <tr key={dataTask.idTask}>
@@ -132,24 +141,28 @@ export default function DocumentDetail() {
                     <td className="input-form">{dataTask.fechaPlazo}</td>
                     <td>
                    
-                  <MydModalWithGrid   show={modalShow} onHide={() => setModalShow(false)}  idDoc={document.id} exp={document.expediente} />
-                <ModalAddCont   show={modalShow1} onHide={() => setModalShow1(false)}  idDoc={document.id} exp={document.expediente} />
-                      <Button  key={dataTask.id} variant="link" onClick={handlem}>
+                 
+                    <Button  id={dataTask.idTask}  name={dataTask.completada} variant="link" onClick={handlem}>
                         Editar
                       </Button>
+                      {somo !=="" ? (
                       <ModalEditTask
                       key={dataTask.id}
                         shows={showEdit}
                         onHides={() => setEdit(false)}
-                        idDocu={document.id}
+                        idDocu={viewDoc}
                       />
+                      ): null}
                     </td>
+            
                   </tr>
                 ))}
             </tbody>
           </Table>
+
         </div>
+        )}
       </div>
     </section>
   );
-}
+                }
