@@ -30,6 +30,11 @@ const getUsers = (callback) => firebase.firestore().collection('documents')
     firebase.firestore().collection('documents').doc(idDoc).collection('tareas').add(
      data
     )
+    .catch(console.log)
   };
+
+
+
+
 
 export { addUser, getUserById, updateUser, getUsers, addSub, getTaskNot};

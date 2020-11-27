@@ -114,8 +114,7 @@ export default function FormUpload() {
   };
 
   function handleSend() {
-    
-     
+       
 
     const info = {
       entidad: entity,
@@ -181,7 +180,6 @@ export default function FormUpload() {
               <Form.Group as={Col} controlId="formGridCity">
                 <Form.Label>Número de Expediente</Form.Label>
                 <Form.Control
-                  type="number"
                   value={record}
                   onChange={handleRecord}
                   required

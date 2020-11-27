@@ -6,7 +6,7 @@ import { addSub } from "../controllers/user";
 
 
 
-export function MydModalWithGrid({ show, onHide, idDoc, tema }) {
+export function MydModalWithGrid({ show, onHide, idDoc }) {
   const [descripcion, setDescripcion] = useState("");
   const [fechaPlazo, setFechaPlazo] = useState("");
   const [areaEncargada, setAreaEncargada] = useState("");
@@ -21,7 +21,7 @@ export function MydModalWithGrid({ show, onHide, idDoc, tema }) {
       fechaPlazo,
       areaEncargada,
       completada: "No completada",
-      tema:tema,
+      
       modificacion:firebase.firestore.Timestamp.now(),
     });
    onHide();
@@ -103,7 +103,7 @@ export function MydModalWithGrid({ show, onHide, idDoc, tema }) {
       </Modal.Body>
       <Modal.Footer>
         <Button className="btn add" onClick={handleClick}>
-          {" "}
+        
           Guardar
         </Button>
       </Modal.Footer>
