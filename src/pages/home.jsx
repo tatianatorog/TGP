@@ -10,27 +10,34 @@ import MenuNav from "../components/menu";
 import add from "../img/add.png";
 import FrontBar from "../components/frontbar";
 import MydModalWrapperDoc from "../components/modalDoc";
+import ToastTask from '../components/toastTask'
 
 function DataTable() {
-  const { allDoc,setviewDoc } = useContext(AuthContext);
+  const { allDoc, setviewDoc, taskNot } = useContext(AuthContext);
   const [term, setTerm] = useState("");
   const [modalShow, setModalShow] = useState(false);
   const history = useHistory();
+  const dateNow = new Date();
+  const notificacion = taskNot ? taskNot.map(task => {
+    const firebaseDate = Date.parse(task.fechaPlazo);
+    const diffTime = Math.abs(firebaseDate - dateNow);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    return diffDays <= 10 ? { 'days': diffDays, 'areaEncargada': task.areaEncargada, 'tema': task.tema } : {}
+  }) : [];  
 
-
+  console.log(notificacion && notificacion, taskNot && taskNot.length)
   const handleFileRedirect = (file) => {
-    localStorage.setItem('file',file)
+    localStorage.setItem('file', file)
     history.push("/documentDetail");
   };
   const addDataTable = () => {
     history.push("/dataTable");
   };
-  
+
   const seeDetailInModal = (file) => {
     setviewDoc(file)
     setModalShow(true);
   };
-
 
   function searchingTerm(term) {
     return function (x) {
@@ -46,6 +53,17 @@ function DataTable() {
 
   return (
     <div className="page">
+      <div className='notification-container'>
+        {notificacion && notificacion.map((item,i) => {
+          if (item.days === 10) {
+            return <ToastTask key={item.days + i} time={item.days} area={item.areaEncargada} topic={item.tema} color={'relax'} />
+          }
+          if (item.days === 5) {
+            return <ToastTask time={item.days} area={item.areaEncargada} topic={item.tema} color={'warn'} />
+          }
+          return (item.days <= 3) ? <ToastTask time={item.days} area={item.areaEncargada} topic={item.tema} color={'fail'} /> : null
+        })}
+      </div>
       <MenuNav />
       <div className="row row-home">
         <div>
@@ -81,7 +99,6 @@ function DataTable() {
               </thead>
               <tbody className="table-body">
                 {allDoc.filter(searchingTerm(term)).map((i) => {
-                  // console.log(i);
                   return (
                     <tr key={i.id}>
                       <td className="box-container tabla-item">{i.entidad}</td>
@@ -90,9 +107,9 @@ function DataTable() {
                       <td className="tabla-item">{i.tema}</td>
                       <td className="tabla-item">{i.fecha_entrada}</td>
                       <td>
-                        <Button variant="link" 
-                        onClick={() => seeDetailInModal(i.id)}>Detalles</Button>
-                     <MydModalWrapperDoc show={modalShow} onHide={() => setModalShow(false)} />
+                        <Button variant="link"
+                          onClick={() => seeDetailInModal(i.id)}>Detalles</Button>
+                        <MydModalWrapperDoc show={modalShow} onHide={() => setModalShow(false)} />
                       </td>
                       <td>
                         <Button

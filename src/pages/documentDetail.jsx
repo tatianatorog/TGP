@@ -18,8 +18,7 @@ export default function DocumentDetail() {
   const [modalShow, setModalShow] = useState(false);
   const [modalShow1, setModalShow1] = useState(false);
   const [showEdit, setEdit] = useState(false);
-  // const handleClose = () => setShow(false);
-  //  const handleShow = () => setShow(true);
+ 
   const viewDoc = localStorage.getItem("file");
 
   const document = allDoc.find((doc) => doc.id === viewDoc);
@@ -41,8 +40,7 @@ export default function DocumentDetail() {
     return colecion  
   }, []);
 
-  console.log(tareas);
-
+  
    
   return (
     <section className="documentDetail-container">
@@ -59,7 +57,7 @@ export default function DocumentDetail() {
                 <tbody>
                   <tr>
                     <td>Monto de Contingencia</td>
-                    <td className="input-form">{document["monto"]}</td>
+          <td className="input-form">s/{document.cantidad} soles - {document.comentario}</td>
                   </tr>
                   <tr>
                     <td>Archivos Adjuntos</td>
@@ -120,7 +118,7 @@ export default function DocumentDetail() {
                     <td className="input-form">{dataTask.fechaPlazo}</td>
                     <td>
                    
-                <MydModalWithGrid   show={modalShow} onHide={() => setModalShow(false)}  idDoc={document.id} exp={document.expediente} />
+                  <MydModalWithGrid   show={modalShow} onHide={() => setModalShow(false)}  idDoc={document.id} exp={document.expediente} />
                 <ModalAddCont   show={modalShow1} onHide={() => setModalShow1(false)}  idDoc={document.id} exp={document.expediente} />
                       <Button  key={dataTask.id} variant="link" onClick={() => setEdit(true)}>
                         Editar

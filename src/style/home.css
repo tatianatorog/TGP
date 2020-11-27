@@ -30,6 +30,14 @@
     margin: 40px 0px 10px 1020px;
     
 }
+.notification-container{
+    z-index: 1;
+    width: 400px;
+    height: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
 
 .tabla-item{
     text-transform: uppercase;
