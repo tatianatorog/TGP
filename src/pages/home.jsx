@@ -55,12 +55,12 @@ function DataTable() {
       <div className='notification-container'>
         {notificacion && notificacion.map((item,i) => {
           if (item.days === 10) {
-            return <ToastTask key={item.days + i} time={item.days} area={item.areaEncargada} topic={item.tema} color={'relax'} />
+            return <ToastTask key={'days'+ item.days + i} time={item.days} area={item.areaEncargada} topic={item.tema} color={'relax'} />
           }
           if (item.days === 5) {
-            return <ToastTask time={item.days} area={item.areaEncargada} topic={item.tema} color={'warn'} />
+            return <ToastTask key={'days' + item.days + i} time={item.days} area={item.areaEncargada} topic={item.tema} color={'warn'} />
           }
-          return (item.days <= 3) ? <ToastTask time={item.days} area={item.areaEncargada} topic={item.tema} color={'fail'} /> : null
+          return (item.days <= 3) ? <ToastTask key={'days' + item.days + i} time={item.days} area={item.areaEncargada} topic={item.tema} color={'fail'} /> : null
         })}
       </div>
       <MenuNav />
