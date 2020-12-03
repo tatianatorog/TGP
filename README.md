@@ -47,6 +47,6 @@ La plataforma Reducer fue desarrollada, teniendo en cuenta la imagen corporativa
 
 # Proyecto realizado para Legal Hackaton - Laboratoria 2020
 
-<img src="src/img/legal-hackaton-logo.png">.
+<img src="src/img/legal-hackaton-logo.png">
 
 
