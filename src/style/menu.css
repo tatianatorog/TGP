@@ -3,8 +3,7 @@
     background-color: var(--input);
     box-sizing: border-box;
     min-width:224px;
-    height: 100vh;
-   
+    height: 100vh
 }
 .menu-logo{
     margin-left: auto;
