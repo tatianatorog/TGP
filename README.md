@@ -26,7 +26,7 @@
 
 # Prototipo Figma
 
-La plataforma Reducer fue desarrollada, teniendo en cuenta la imagen corporativa de TGP. [Demo](https://www.figma.com/proto/8zKc6ZwOq8vTClI7LpuRvU/prototipo-final?node-id=110%3A12&scaling=scale-down-width).
+La plataforma Reducer fue desarrollada, teniendo en cuenta la imagen corporativa de TGP. [Demo](https://www.figma.com/proto/ZiHJEWhdcemkyfpLA6VvAe/prototipo-final-Copia-TGP?node-id=25%3A6&scaling=min-zoom).
 
 <img src="src/img/vista1.png">
 
@@ -40,7 +40,7 @@ La plataforma Reducer fue desarrollada, teniendo en cuenta la imagen corporativa
 
 [Tatiana Toro](https://github.com/tatianatorog) -  Frontend Developer
 
-[Guadalupe Larios](gdlp.larios@gmail.com) - UI/UX Designer
+[Guadalupe Larios](https://github.com/GuadalupeLarios) - UI/UX Designer
 
 
 
