@@ -2,51 +2,50 @@
 
 
 
-# Descripción del reto
+# Description of the challenge
   
-  Desarrollar una plataforma virtual, para  la administración eficaz de los oficios que recibe TGP , por parte de los entes reguladores.
+   Develop a virtual platform, for the effective administration of the trades received by TGP, by the regulatory entities.
 
- # Historias de Usuario
+  # User Stories
 
- HU1: Yo como usuario de la plataforma Reducer, quiero poder registrarme e ingresar  con mi correo institucional para poder tener un control adecuado de los oficios.
+  HU1: As a user of the Reducer platform, I want to be able to register and enter with my institutional email in order to have adequate control of the trades.
 
- HU2: Yo como usuario de la plataforma Reducer, quiero poder subir los oficios con sus respectivos campos de identificación, para poder buscarlo fácilmente.
+  HU2: As a user of the Reducer platform, I want to be able to upload trades with their respective identification fields, so that I can easily search for them.
 
- HU3: Yo como usuario de la plataforma Reducer, quiero poder buscar un oficio por una palabra clave, el número de expediente, por motivo, etc.Para poder acceder a la información rápidamente y revisar los sucesos que se han desarrollado con los oficios.
+  HU3: As a user of the Reducer platform, I want to be able to search for a trade by a keyword, the file number, by reason, etc. To be able to quickly access the information and review the events that have developed with the trades.
 
-  HU3: Yo como usuario de la plataforma Reducer, quiero poder agregar tareas con respecto a los requisitos para dar respuesta al oficio y saber quien esta cargado de  cada una de las tareas y la fecha plazo para su cumplimiento.
+   HU3: As a user of the Reducer platform, I want to be able to add tasks regarding the requirements to respond to the trade and know who is responsible for each of the tasks and the deadline for their completion.
 
-  HU3: Yo como usuario de la plataforma Reducer, quiero poder agregar información adicional a media que transcurre el proceso del oficio, para poder administrar correctamente el expediente.
+   HU3: As a user of the Reducer platform, I want to be able to add additional information as the process of the official document takes place, in order to correctly manage the file.
 
-  HU4: Yo como usuario de la plataforma Reducer, quiero poder visualizar notificaciones tipo semáforo, para saber cuales tareas tiene fecha próxima a vencerse. 
+   HU4: As a user of the Reducer platform, I want to be able to view traffic light type notifications, to know which tasks are due soon.
 
-  # Demo del proyecto
+   # project demo
 
-  Este proyecto fue realizado con React, Bootstrap, y Firebase. [Reducer](https://tgp-legal.web.app/).
+   This project was made with React, Bootstrap, and Firebase. [Reducer](https://tgp-legal.web.app/).
 
-# Prototipo Figma
+# Figma Prototype
 
-La plataforma Reducer fue desarrollada, teniendo en cuenta la imagen corporativa de TGP. [Demo](https://www.figma.com/proto/ZiHJEWhdcemkyfpLA6VvAe/prototipo-final-Copia-TGP?node-id=25%3A6&scaling=min-zoom).
+The Reducer platform was developed taking into account the corporate image of TGP. [Demo](https://www.figma.com/proto/ZiHJEWhdcemkyfpLA6VvAe/prototipo-final-Copia-TGP?node-id=25%3A6&scaling=min-zoom).
 
-<img src="src/img/vista1.png">
+<img src="src/img/view1.png">
 
 <img src="src/img/vista2.png">
 
-# Equipo UX/UI y desarrollo
+# UX/UI and development team
 
 [Jael Rodriguez ](https://github.com/jael-VRR) - Frontend Developer
 
 [Diana Olarte](https://github.com/dcoa) - Frontend Developer
 
-[Tatiana Toro](https://github.com/tatianatorog) -  Frontend Developer
+[Tatiana Toro](https://github.com/tatianatorog) - Frontend Developer
 
 [Guadalupe Larios](https://github.com/GuadalupeLarios) - UI/UX Designer
 
 
 
 
-# Proyecto realizado para Legal Hackaton - Laboratoria 2020
+# Project carried out for Legal Hackaton - Laboratoria 2020
 
 <img src="src/img/legal-hackaton-logo.png">
-
 
